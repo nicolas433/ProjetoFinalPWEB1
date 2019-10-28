@@ -22,7 +22,7 @@ class CreateTableProducts extends Migration
 			$table->string('img_url')->nullable();
             
             $table->unsignedBigInteger('categories_id');
-            $table->foreign('categories_id')->reference('id')->on('categories');
+            $table->foreign('categories_id')->references('id')->on('categories');
  
             $table->timestamps();
         });
