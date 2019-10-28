@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Meu Ovo
+                    Meu Ovo!
                 </div>
 
                 <div class="links">
