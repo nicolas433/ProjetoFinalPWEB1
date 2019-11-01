@@ -24,3 +24,12 @@ Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 Route::get('/categories', 'CategoryController@index')->name('categories');
 
 Route::get('/products', 'ProductController@index')->name('products');
+
+Route::get('/history', 'HistoryController@index')->name('history');
+
+Route::get('/clients', 'ClientController@index')->name('clients');
+
+Route::get('/statistics', 'StatisticController@index')->name('statistics');
+
+
+

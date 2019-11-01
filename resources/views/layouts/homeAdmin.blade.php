@@ -46,13 +46,13 @@
 
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Histórico de pedidos</a>
+                            <a class="nav-link" href="{{ url('history') }}">Histórico de pedidos</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Clientes</a>
+                            <a class="nav-link" href="{{ url('clients') }}">Clientes</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Estatísticas</a>
+                            <a class="nav-link" href="{{ url('statistics') }}">Estatísticas</a>
                         </li>
                     </ul>
 
