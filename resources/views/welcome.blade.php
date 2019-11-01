@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Meu Ovo!
+                    Sistema de Delivery!
                 </div>
 
                 <div class="links">
