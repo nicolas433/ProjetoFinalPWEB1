@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.homeUser')
  
 @section('content')
 <div class="container">
@@ -9,6 +9,7 @@
  
                 <div class="card-body">
                     <h3>Normal user page!</h3>
+                    <p>Aqui na pagina principal, aparecerá o cardápio</p>
                 </div>
             </div>
         </div>

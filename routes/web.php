@@ -20,3 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+
+Route::get('/categories', 'CategoryController@index')->name('categories');
+
+Route::get('/products', 'ProductController@index')->name('products');

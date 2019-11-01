@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     Maia Delivery!
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -34,6 +34,26 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <!-- Itens do menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Cadastro de cardápio
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="{{ url('categories') }}">Categorias</a>
+                                <a class="dropdown-item" href="{{ url('products') }}">Produtos</a>
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Histórico de pedidos</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Clientes</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Estatísticas</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
