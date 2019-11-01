@@ -18,8 +18,9 @@ class CreateProductsTable extends Migration
             $table->string('name');
 			$table->float('price');
             $table->text('description');
-            $table->boolean('active');
-			$table->string('img_url')->nullable();
+            $table->boolean('active')->nullable();
+            $table->string('img_url')->nullable();
+            $table->boolean('operating')->default(1);
             
             $table->unsignedBigInteger('categories_id');
             $table->foreign('categories_id')->references('id')->on('categories');
