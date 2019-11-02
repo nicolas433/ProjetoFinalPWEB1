@@ -5,7 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">Categorias</div>
+                    <div class="card-header d-flex justify-content-between">
+                        Categorias
+                        <a href="" class="btn btn-dark btn-sm">Novo +</a>
+                    </div>
     
                     <div class="card-body">
                     @if(count($categories) > 0)

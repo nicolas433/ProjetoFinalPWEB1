@@ -19,9 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+// Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 
 Route::get('/categories', 'CategoryController@index')->name('categories');
+Route::get('/categories/new', 'CategoryController@create');
+Route::post('/categories', 'CategoryController@store');
+Route::get('/categories/edit/{id}', 'CategoryController@edit');
+Route::put('/categories/{id}', 'CategoryController@update');
+Route::delete('/categories/delete/{id}', 'CategoryController@destroy');
 
 Route::get('/products', 'ProductController@index')->name('products');
 
