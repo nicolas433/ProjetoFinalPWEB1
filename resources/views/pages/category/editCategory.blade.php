@@ -12,6 +12,7 @@
                     <div class="card-body">
                         <form action="/categories/{{$category->id}}" method="POST">
                             @csrf
+                            <input type="hidden" name="_method" value="PUT">
                             <div class="form-group">
                                 <label for="categoryName">Nome da categoria</label>
                                 <input

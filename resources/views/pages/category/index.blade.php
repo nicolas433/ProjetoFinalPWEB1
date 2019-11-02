@@ -27,14 +27,20 @@
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->updated_at }}</td>
-                                        <td>
+                                        <td class="d-flex justify-content-left">
                                             <a
                                                 href="/categories/edit/{{$category->id}}"
-                                                class="btn btn-primary btn-sm"
+                                                class="btn btn-primary btn-sm mr-2"
                                             >
                                                 Editar
                                             </a>
-                                            <a class="btn btn-danger btn-sm">Excluir</a>
+                                            <form action="/categories/delete/{{$category->id}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-sm btn-danger">
+                                                    Excluir
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

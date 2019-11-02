@@ -79,7 +79,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        if(isset($category)) {
+            $category->name = $request->input('categoryName');
+            $category->save();
+            return redirect('/categories');
+        } else {
+            return redirect('/categories');
+        }
     }
 
     /**
@@ -90,6 +97,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        if (isset($category)) {
+            $category->delete();
+        }
+        return redirect('/categories');
     }
 }
