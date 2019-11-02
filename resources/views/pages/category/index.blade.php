@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         Categorias
-                        <a href="" class="btn btn-dark btn-sm">Novo +</a>
+                        <a href="/categories/new" class="btn btn-dark btn-sm">Novo +</a>
                     </div>
     
                     <div class="card-body">
@@ -28,7 +28,12 @@
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->updated_at }}</td>
                                         <td>
-                                            <a class="btn btn-primary btn-sm">Editar</a>
+                                            <a
+                                                href="/categories/edit/{{$category->id}}"
+                                                class="btn btn-primary btn-sm"
+                                            >
+                                                Editar
+                                            </a>
                                             <a class="btn btn-danger btn-sm">Excluir</a>
                                         </td>
                                     </tr>

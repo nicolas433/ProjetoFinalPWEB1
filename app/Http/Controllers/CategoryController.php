@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.category.newCategory');
     }
 
     /**
@@ -37,7 +37,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        $category->name = $request->input('categoryName');
+        $category->save();
+        return redirect('/categories');
     }
 
     /**
@@ -59,7 +62,12 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        if(isset($category)) {
+            return view('pages.category.editCategory', compact('category'));
+        } else {
+            return redirect('/categories');
+        }
     }
 
     /**
