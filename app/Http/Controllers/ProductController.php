@@ -81,7 +81,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $categories = Category::all();
+        return view('pages.product.editProduct', compact('product', 'categories'));
     }
 
     /**
@@ -93,7 +95,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        if(isset($product)) {
+            if ($request->input('active') == 'on') {
+                $product->active = 1;
+            } else {
+                $product->active = 0;
+            }
+
+            $product->name = $request->input('productName');
+            $product->price = $request->input('productPrice');
+            $product->description = $request->input('productDescription');
+            $product->category_id = $request->input('category');
+            $product->save();
+            return redirect('/products');
+        } else {
+            return redirect('/products');
+        }
     }
 
     /**
@@ -104,6 +122,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        if(isset($product)) {
+            $product->delete();
+        }
+        return redirect('/products');
     }
 }

@@ -32,8 +32,8 @@ Route::get('/products', 'ProductController@index')->name('products');
 Route::get('/products/new', 'ProductController@create');
 Route::post('/products', 'ProductController@store');
 Route::get('/products/edit/{id}', 'ProductController@edit');
-Route::post('/products/{id}', 'ProductController@update');
-Route::get('/products/delete/{id}', 'ProductController@destroy');
+Route::put('/products/{id}', 'ProductController@update');
+Route::delete('/products/delete/{id}', 'ProductController@destroy');
 
 Route::get('/history', 'HistoryController@index')->name('history');
 
