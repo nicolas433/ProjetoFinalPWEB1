@@ -25,28 +25,52 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($products as $category)
+                                @foreach($products as $product)
                                     <tr>
-                                        <td>{{ $category->id }}</td>
-                                        <td>{{ $category->name }}</td>
-                                        <td>R$ {{ $category->price }}</td>
-                                        <td>{{ $category->active == 1 ? 'Sim' : 'Não' }}</td>
-                                        <td>{{ $category->categoryName }}</td>
-                                        <td>{{ $category->updated_at }}</td>
+                                        <td>{{ $product->id }}</td>
+                                        <td>{{ $product->name }}</td>
+                                        <td>R$ {{ $product->price }}</td>
+                                        <td>{{ $product->active == 1 ? 'Sim' : 'Não' }}</td>
+                                        <td>{{ $product->productName }}</td>
+                                        <td>{{ $product->updated_at }}</td>
                                         <td class="d-flex justify-content-left">
+                                            <!-- Botão para acionar o modal -->
                                             <a
                                                 href
                                                 class="btn btn-dark btn-sm mr-2"
+                                                data-toggle="modal"
+                                                data-target="#modalDesc{{ $product->id }}"
                                             >
                                                 Ver mais
                                             </a>
+
+                                            <!-- Modal para exibir a descrição do produto -->
+                                            <div class="modal fade" id="modalDesc{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="modalDescLabel{{ $product->id }}" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="modalDescLabel{{ $product->id }}">Título do modal</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            {{ $product->description }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Botão editar -->
                                             <a
-                                                href="/products/edit/{{$category->id}}"
+                                                href="/products/edit/{{$product->id}}"
                                                 class="btn btn-primary btn-sm mr-2"
                                             >
                                                 Editar
                                             </a>
-                                            <form action="/products/delete/{{$category->id}}" onsubmit="return confirm('Deseja realmente deletar esse produto?')" method="POST">
+
+                                            <!-- Botão excluir -->
+                                            <form action="/products/delete/{{$product->id}}" onsubmit="return confirm('Deseja realmente deletar esse produto?')" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-sm btn-danger">
@@ -66,4 +90,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('javascript')
+    <script type="text/javascript">
+        
+    </script>
 @endsection
