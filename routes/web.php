@@ -21,19 +21,31 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 
-Route::get('/categories', 'CategoryController@index')->name('categories');
-Route::get('/categories/new', 'CategoryController@create');
-Route::post('/categories', 'CategoryController@store');
-Route::get('/categories/edit/{id}', 'CategoryController@edit');
-Route::put('/categories/{id}', 'CategoryController@update');
+
+//CAtEGOGIES
+Route::get(   '/categories',             'CategoryController@index')->name('categories');
+Route::get(   '/categories/new',         'CategoryController@create');
+Route::post(  '/categories',             'CategoryController@store');
+Route::get(   '/categories/edit/{id}',   'CategoryController@edit');
+Route::put(   '/categories/{id}',        'CategoryController@update');
 Route::delete('/categories/delete/{id}', 'CategoryController@destroy');
 
-Route::get('/products', 'ProductController@index')->name('products');
-Route::get('/products/new', 'ProductController@create');
-Route::post('/products', 'ProductController@store');
-Route::get('/products/edit/{id}', 'ProductController@edit');
-Route::put('/products/{id}', 'ProductController@update');
+//PRODUCtS
+Route::get(   '/products',             'ProductController@index')->name('products');
+Route::get(   '/products/new',         'ProductController@create');
+Route::post(  '/products',             'ProductController@store');
+Route::get(   '/products/edit/{id}',   'ProductController@edit');
+Route::put(   '/products/{id}',        'ProductController@update');
 Route::delete('/products/delete/{id}', 'ProductController@destroy');
+
+//ADDRESS
+Route::get(   '/addresses/new',         'AddressController@create');
+Route::post(  '/addresses',             'AddressController@store');
+Route::get(   '/addresses/{id}',        'AddressController@show');
+Route::put(   '/addresses/{id}',        'AddressController@update');
+Route::delete('/addresses/delete/{id}', 'AddressController@destroy');
+
+
 
 Route::get('/history', 'HistoryController@index')->name('history');
 
