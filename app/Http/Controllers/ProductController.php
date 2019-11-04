@@ -21,8 +21,7 @@ class ProductController extends Controller
         foreach($products as $product) {
             $category = Category::find($product->category_id);
             $product->categoryName = $category->name;
-        }
-        
+        }  
         return view('pages.product.index', compact('products'));
     }
 

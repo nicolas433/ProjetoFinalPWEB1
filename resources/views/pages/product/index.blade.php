@@ -46,7 +46,7 @@
                                             >
                                                 Editar
                                             </a>
-                                            <form action="/products/delete/{{$category->id}}" method="POST">
+                                            <form action="/products/delete/{{$category->id}}" onsubmit="return confirm('Deseja realmente deletar esse produto?')" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-sm btn-danger">
