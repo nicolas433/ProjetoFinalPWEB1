@@ -31,7 +31,7 @@
                                         <td>{{ $product->name }}</td>
                                         <td>R$ {{ $product->price }}</td>
                                         <td>{{ $product->active == 1 ? 'Sim' : 'Não' }}</td>
-                                        <td>{{ $product->productName }}</td>
+                                        <td>{{ $product->categoryName }}</td>
                                         <td>{{ $product->updated_at }}</td>
                                         <td class="d-flex justify-content-left">
                                             <!-- Botão para acionar o modal -->
