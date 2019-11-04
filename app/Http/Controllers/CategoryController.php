@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::all()->where('operating', '=', '1');
         return view('pages.category.index', compact(['categories']));
     }
 
@@ -99,7 +99,8 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         if (isset($category)) {
-            $category->delete();
+            $category->operating = '0';
+            $category->save();
         }
         return redirect('/categories');
     }

@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::all()->where('operating', '=', '1');
         
         foreach($products as $product) {
             $category = Category::find($product->category_id);
@@ -32,7 +32,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::all()->where('operating', '=', '1');
         return view('pages.product.newProduct', compact('categories'));
     }
 
@@ -81,7 +81,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        $categories = Category::all();
+        $categories = Category::all()->where('operating', '=', '1');
         return view('pages.product.editProduct', compact('product', 'categories'));
     }
 
@@ -123,7 +123,8 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         if(isset($product)) {
-            $product->delete();
+            $product->operating = '0';
+            $product->save();
         }
         return redirect('/products');
     }
