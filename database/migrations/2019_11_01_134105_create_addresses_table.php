@@ -21,7 +21,7 @@ class CreateAddressesTable extends Migration
             $table->string('neighborhood');
             $table->string('city');
             $table->longText('reference_point')->nullable();
-            $table->boolean('main');
+            $table->boolean('main')->nullable();
             $table->boolean('operating')->default(1);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
