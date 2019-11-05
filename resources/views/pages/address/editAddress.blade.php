@@ -6,12 +6,13 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        Novo endereço
+                        Editar endereço
                     </div>
     
                     <div class="card-body">
-                        <form action="/addresses" method="POST">
+                        <form action="/addresses/{{ $address->id }}" method="POST">
                             @csrf
+                            <input type="hidden" name="_method" value="PUT">
                             <div class="form-group">
                                 <label for="houseNumber">Numero da casa*</label>
                                 <input
@@ -20,6 +21,7 @@
                                     name="houseNumber"
                                     id="houseNumber"
                                     placeholder="Digite o numero da casa"
+                                    value="{{ $address->house_number }}"
                                 >
                             </div>
                             <div class="form-group">
@@ -30,6 +32,7 @@
                                     name="apartmentNumber"
                                     id="apartmentNumber"
                                     placeholder="Digite o numero do apartamento"
+                                    value="{{ $address->apartment_number }}"
                                 >
                             </div>
                             <div class="form-group">
@@ -40,6 +43,7 @@
                                     name="street"
                                     id="street"
                                     placeholder="Digite o nome da Rua"
+                                    value="{{ $address->street }}"
                                 >
                             </div>
                             <div class="form-group">
@@ -50,6 +54,7 @@
                                     name="neighborhood"
                                     id="neighborhood"
                                     placeholder="Digite o nome do Bairro"
+                                    value="{{ $address->neighborhood }}"
                                 >
                             </div>
                             <div class="form-group">
@@ -60,6 +65,7 @@
                                     name="city"
                                     id="city"
                                     placeholder="Digite o nome da Cidade"
+                                    value="{{ $address->city }}"
                                 >
                             </div>
                             <div class="form-group">
@@ -70,6 +76,7 @@
                                     name="referencePoint"
                                     id="referencePoint"
                                     placeholder="Digite um ponto de referencia"
+                                    value="{{ $address->reference_point }}"
                                 >
                             </div>
 

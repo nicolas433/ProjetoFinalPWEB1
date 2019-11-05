@@ -42,8 +42,8 @@ Route::delete('/products/delete/{id}', 'ProductController@destroy');
 Route::get('/addresses', 'AddressController@index');
 Route::get(   '/addresses/new',    'AddressController@create');
 Route::post(  '/addresses',             'AddressController@store');
-// Route::get(   '/addresses/{id}',        'AddressController@show');
-// Route::put(   '/addresses/{id}',        'AddressController@update');
+Route::get(   '/addresses/edit/{id}',        'AddressController@edit');
+Route::put(   '/addresses/{id}',        'AddressController@update');
 // Route::delete('/addresses/delete/{id}', 'AddressController@destroy');
 
 

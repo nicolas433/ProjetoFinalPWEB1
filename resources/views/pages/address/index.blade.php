@@ -7,6 +7,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         Endereços cadastrados
+                        <a href="/addresses/new" class="btn btn-dark btn-sm">Novo +</a>
                     </div>
     
                     <div class="card-body">
@@ -25,7 +26,23 @@
                                         <h5 class="card-title">Nº do apartamento: {{ $address->apartment_number }}</h5>
                                     @endif
                                     <p class="card-text">{{ $address->reference_point }}</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                                    <!-- Botoões -->
+                                    <div class="d-flex justify-content-left">
+                                        <a
+                                            href="/addresses/edit/{{$address->id}}"
+                                            class="btn btn-primary btn-sm mr-2"
+                                        >
+                                            Editar
+                                        </a>
+                                        <form onsubmit="return confirm('Deseja realmente deletar esse endereço?')" action="/addresses/delete/{{$address->id}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                Excluir
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach

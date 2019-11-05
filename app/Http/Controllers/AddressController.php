@@ -85,7 +85,12 @@ class AddressController extends Controller
      */
     public function edit($id)
     {
-        //
+        $address = Address::find($id);
+        if(isset($address)) {
+            return view('pages.address.editAddress', compact('address'));
+        } else {
+            return redirect('/addresses');
+        }
     }
 
     /**
@@ -97,7 +102,28 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $address = Address::find($id);
+        if(isset($address)) {
+            $address->house_number = $request->input('houseNumber');
+            $address->apartment_number = $request->input('apartmentNumber');
+            $address->street = $request->input('street');
+            $address->neighborhood = $request->input('neighborhood');
+            $address->city = $request->input('city');
+            $address->reference_point = $request->input('referencePoint');
+            $address->operating = '1';
+
+            if (isset(auth()->user()->id)) {
+                $address->user_id = auth()->user()->id;
+            } else {
+                return redirect('/addresses');
+            }
+
+            $address->save();
+
+            return redirect('/addresses');
+        } else {
+            return redirect('/addresses');
+        }
     }
 
     /**
