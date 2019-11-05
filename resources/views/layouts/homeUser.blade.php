@@ -34,6 +34,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <!-- Itens do menu -->
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('addresses') }}">Meus endereços</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

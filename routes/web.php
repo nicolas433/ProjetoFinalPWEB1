@@ -39,6 +39,7 @@ Route::put(   '/products/{id}',        'ProductController@update');
 Route::delete('/products/delete/{id}', 'ProductController@destroy');
 
 //ADDRESS
+Route::get('/addresses', 'AddressController@index');
 Route::get(   '/addresses/new',    'AddressController@create');
 Route::post(  '/addresses',             'AddressController@store');
 // Route::get(   '/addresses/{id}',        'AddressController@show');

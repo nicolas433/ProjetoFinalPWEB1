@@ -1,4 +1,4 @@
-@extends('layouts.homeAdmin')
+@extends('layouts.homeUser')
  
 @section('content')
 <div class="container">

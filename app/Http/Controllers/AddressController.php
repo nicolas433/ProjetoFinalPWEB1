@@ -15,7 +15,16 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
+        if (isset(auth()->user()->id)) {
+            $userId = auth()->user()->id;
+            $addresses = Address::all()
+                            ->where('operating', '=', '1')
+                            ->where('user_id', '=', $userId);
+
+            return view('pages.address.index', compact(['addresses']));
+        } else {
+            return redirect('/');
+        }
     }
 
     /**
