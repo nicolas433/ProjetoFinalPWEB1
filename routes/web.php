@@ -44,7 +44,7 @@ Route::get(   '/addresses/new',    'AddressController@create');
 Route::post(  '/addresses',             'AddressController@store');
 Route::get(   '/addresses/edit/{id}',        'AddressController@edit');
 Route::put(   '/addresses/{id}',        'AddressController@update');
-// Route::delete('/addresses/delete/{id}', 'AddressController@destroy');
+Route::delete('/addresses/delete/{id}', 'AddressController@destroy');
 
 
 

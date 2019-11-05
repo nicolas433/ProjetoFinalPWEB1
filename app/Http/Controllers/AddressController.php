@@ -63,7 +63,7 @@ class AddressController extends Controller
 
         $address->save();
 
-        return redirect('/home');
+        return redirect('/addresses');
     }
 
     /**
@@ -134,6 +134,11 @@ class AddressController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $address = Address::find($id);
+        if (isset($address)) {
+            $address->operating = '0';
+            $address->save();
+        }
+        return redirect('/addresses');
     }
 }
