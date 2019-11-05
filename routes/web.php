@@ -54,5 +54,7 @@ Route::get('/clients', 'ClientController@index')->name('clients');
 
 Route::get('/statistics', 'StatisticController@index')->name('statistics');
 
+Route::get('/menu', 'MenuController@index')->name('menu');
+
 
 

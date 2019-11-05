@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Product;
+
 class HomeController extends Controller
 {
     /**
@@ -26,7 +28,8 @@ class HomeController extends Controller
         if (auth()->user()->is_admin == 1) {
             return view('admin');
         } else {
-            return view('home');
+            $products = Product::all()->where('operating', '=', '1');
+            return view('home', compact('products'));
         }
     }
 
