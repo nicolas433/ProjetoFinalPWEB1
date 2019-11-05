@@ -9,7 +9,8 @@
                         Endereços cadastrados
                         <a href="/addresses/new" class="btn btn-dark btn-sm">Novo +</a>
                     </div>
-    
+
+                    @if(count($addresses) > 0)
                     <div class="card-body">
                         @foreach($addresses as $address)
                             <div class="card my-3 p-3">
@@ -47,6 +48,9 @@
                             </div>
                         @endforeach
                     </div>
+                    @else
+                        <p class="p-3">Não há endereços cadastrados</p>
+                    @endif
                 </div>
             </div>
         </div>
