@@ -10,71 +10,71 @@
                     </div>
     
                     <div class="card-body">
-                        <form action="/address" method="POST">
+                        <form action="/addresses" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="addressName">Numero da casa*</label>
+                                <label for="houseNumber">Numero da casa*</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    name="addressName"
-                                    id="addressName"
+                                    name="houseNumber"
+                                    id="houseNumber"
                                     placeholder="Digite o numero da casa"
                                 >
                             </div>
                             <div class="form-group">
-                                <label for="addressName">Numero do apartamento</label>
+                                <label for="apartmentNumber">Numero do apartamento</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    name="addressName"
-                                    id="addressName"
+                                    name="apartmentNumber"
+                                    id="apartmentNumber"
                                     placeholder="Digite o numero do apartamento"
                                 >
                             </div>
                             <div class="form-group">
-                                <label for="addressName">Rua*</label>
+                                <label for="street">Rua*</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    name="addressName"
-                                    id="addressName"
+                                    name="street"
+                                    id="street"
                                     placeholder="Digite o nome da Rua"
                                 >
                             </div>
                             <div class="form-group">
-                                <label for="addressName">Bairro*</label>
+                                <label for="neighborhood">Bairro*</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    name="addressName"
-                                    id="addressName"
+                                    name="neighborhood"
+                                    id="neighborhood"
                                     placeholder="Digite o nome do Bairro"
                                 >
                             </div>
                             <div class="form-group">
-                                <label for="addressName">Cidade*</label>
+                                <label for="city">Cidade*</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    name="addressName"
-                                    id="addressName"
+                                    name="city"
+                                    id="city"
                                     placeholder="Digite o nome da Cidade"
                                 >
                             </div>
                             <div class="form-group">
-                                <label for="addressName">Ponto de referencia</label>
+                                <label for="referencePoint">Ponto de referencia</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    name="addressName"
-                                    id="addressName"
+                                    name="referencePoint"
+                                    id="referencePoint"
                                     placeholder="Digite um ponto de referencia"
                                 >
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-                            <a href="/addresss" class="btn btn-danger btn-sm">Cancelar</a>
+                            <a href="/home" class="btn btn-danger btn-sm">Cancelar</a>
                         </form>
                     </div>
                 </div>

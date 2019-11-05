@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Address;
+
 class AddressController extends Controller
 {
     /**
@@ -34,7 +36,25 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $address = new Address();
+
+        $address->house_number = $request->input('houseNumber');
+        $address->apartment_number = $request->input('apartmentNumber');
+        $address->street = $request->input('street');
+        $address->neighborhood = $request->input('neighborhood');
+        $address->city = $request->input('city');
+        $address->reference_point = $request->input('referencePoint');
+        $address->operating = '1';
+
+        if (isset(auth()->user()->id)) {
+            $address->user_id = auth()->user()->id;
+        } else {
+            return redirect('/address/new');
+        }
+
+        $address->save();
+
+        return redirect('/home');
     }
 
     /**
