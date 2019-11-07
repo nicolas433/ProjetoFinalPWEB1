@@ -7,7 +7,7 @@
             @if (count($products) > 0)
                 <div class="container">
                     <div class="row d-flex justify-content-end">
-                        <a href="" class="btn btn-sm btn-dark">Sacola</a>
+                        <a href="/shoppingbag" class="btn btn-sm btn-dark">Sacola</a>
                     </div>
                 </div>
 
