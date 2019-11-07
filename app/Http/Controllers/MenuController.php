@@ -47,7 +47,12 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        if (isset($product)) {
+            return view('pages.menu.selectedItem', compact('product'));
+        } else {
+            return view('home');
+        }
     }
 
     /**

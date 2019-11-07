@@ -18,7 +18,7 @@
                             <h4>R$ {{ $product->price }}</h4>
                         </div>
                         <div class="c-body">
-                            <a href="" class="btn btn-dark btn-sm">Adicionar a sacola</a>
+                            <a href="/menu/item/{{ $product->id }}" class="btn btn-dark btn-sm">Adicionar a sacola</a>
                         </div>
                     </div>
                 @endforeach
