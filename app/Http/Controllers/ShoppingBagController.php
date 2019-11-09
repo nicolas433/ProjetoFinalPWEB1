@@ -34,7 +34,23 @@ class ShoppingBagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $productId = $request->input('productId');
+        $amount = $request->input('amount');
+        $totalValue = $request->input('totalValue');
+
+        if ($amount < 1) {
+            $amount = 1;
+        }
+
+        if (session()->has('bag')) {
+            $request->session()->put('bag', [
+                'productId' => $productId,
+                'amount' => $amount,
+                'totalValue' => $totalValue
+            ]);
+        } else {
+            return view('home');
+        }
     }
 
     /**

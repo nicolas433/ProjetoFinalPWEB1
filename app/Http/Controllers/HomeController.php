@@ -23,11 +23,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         if (auth()->user()->is_admin == 1) {
             return view('admin');
+            
         } else {
+            // Cria uma sessão bag caso ela não exista
+            if (!session()->has('bag')) {
+                $request->session()->put('bag', []);
+            }
+
             $products = Product::all()->where('operating', '=', '1');
             return view('home', compact('products'));
         }

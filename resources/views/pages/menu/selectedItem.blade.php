@@ -21,13 +21,15 @@
                 </div>
 
                 <div class="card p-3 fixed-bottom mt-5">
-                    <form>
-                        <input type="hidden" name="qtd">
-                        <input type="hidden" name="total-value">
-                        <a class="btn btn-dark text-white btn-sm p-3 d-flex justify-content-between">
+                    <form action="/shoppingbag" method="POST">
+                        @csrf
+                        <input type="hidden" name="productId" value="{{ $product->id }}">
+                        <input type="hidden" name="amount" value="2">
+                        <input type="hidden" name="totalValue" value="10">
+                        <button type="submit" class="btn btn-dark text-white btn-sm p-3 d-flex justify-content-between">
                             <span>Adicionar</span>
                             <span>R$ YY,YY</span>
-                        </a>
+                        </button>
                     </form>
                 </div>
             </div>
