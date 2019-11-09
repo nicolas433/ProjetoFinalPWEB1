@@ -31,7 +31,7 @@
 
                 <!-- Só deve aparecer caso hajam itens na sacola -->
                 <div class="card p-3 fixed-bottom mt-5">
-                    <a class="btn btn-dark text-white btn-sm p-3">Realizar pedido</a>
+                    <a href="/selectaddress" class="btn btn-dark text-white btn-sm p-3">Realizar pedido</a>
                 </div>
             </div>
         </div>
