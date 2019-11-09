@@ -10,7 +10,14 @@
                     <div class="desc">
                         <h4>{{ $product->name }}</h4>
                         <p>{{ $product->description }}</p>
-                        <h4 style="display: inline" id="total">{{ $product->price }} </h4> <h4 style="display: inline">R$</h4>
+                        <h4 style="display: inline" >Total&nbsp</h4>
+                        <h4 style="display: inline" id="total">{{ $product->price }} </h4>
+                        <h4 style="display: inline" >R$</h4>
+                        <br>
+                        <br>
+                        <h4 style="display: inline" >Unid.&nbsp</h4>
+                        <h4 style="display: inline" >{{ $product->price }} </h4>
+                        <h4 style="display: inline" >R$</h4>
                     </div>
                     <div class="actions d-flex mt-5 justify-content-between">
                         <p>Quantidade:</p>
