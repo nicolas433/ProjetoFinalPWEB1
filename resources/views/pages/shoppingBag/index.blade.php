@@ -4,19 +4,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                @if(isset($bag) && isset($products))
+                @if(isset($products))
                     <div class="card p-3">
-                        @for($i = 0; $i < count($products); $i++)
-                            <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
-                                <div class="title-product">
-                                    {{  }} <b>{{  }}</b>
-                                </div>
-                                <div class="price-actions">
-                                    <span>R$ 2,00</span>
-                                    <a href="" class="ml-1">remover</a>
-                                </div>
-                            </div>
-                        @endfor
+                        foi
+                       
                         
                         
                         <!-- <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
