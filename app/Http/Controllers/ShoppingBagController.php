@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Product;
+
 class ShoppingBagController extends Controller
 {
     /**
@@ -13,7 +15,12 @@ class ShoppingBagController extends Controller
      */
     public function index()
     {
-        return view('pages.shoppingBag.index');
+        if (session()->has('bag')) {
+            $bag = $request->session()->get('bag');
+            return view('pages.shoppingBag.index', compact('bag'));
+        } else {
+            return view('home');
+        }
     }
 
     /**
@@ -38,16 +45,34 @@ class ShoppingBagController extends Controller
         $amount = $request->input('amount');
         $totalValue = $request->input('totalValue');
 
+        // $request->session()->forget('bag');
+
         if ($amount < 1) {
             $amount = 1;
         }
 
         if (session()->has('bag')) {
-            $request->session()->put('bag', [
+            $request->session()->push('bag', [
                 'productId' => $productId,
                 'amount' => $amount,
                 'totalValue' => $totalValue
             ]);
+
+            $bag = $request->session()->get('bag');
+              
+            $products = array();
+            for($i=0; $i < count($bag); $i++){
+                $product = Product::find($bag[$i]['productId']);
+                array_push($products, $product);
+            }
+
+            for($i=0; $i < count($products); $i++){
+                $products[$i]->amount = $bag[$i]['amount'];
+                $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
+            }
+
+            return view('pages.shoppingBag.index', compact(['products']));
+
         } else {
             return view('home');
         }
