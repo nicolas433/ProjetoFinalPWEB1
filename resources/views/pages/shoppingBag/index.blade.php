@@ -6,54 +6,20 @@
             <div class="col-md-10">
                 @if(isset($products))
                     <div class="card p-3">
-                        foi
-                       
-                        
-                        
-                        <!-- <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
-                            <div class="title-product">
-                                1 <b>Pastel</b>
+                        @for($i = 0; $i < count($products); $i++)
+                            <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
+                                <div class="title-product">
+                                    {{ $products[$i]->amount }} <b>{{ $products[$i]->name }}</b>
+                                </div>
+                                <div class="price-actions">
+                                    <span>R$ {{ $products[$i]->totalValue }}</span>
+                                    <a href="" class="ml-3">remover</a>
+                                </div>
                             </div>
-                            <div class="price-actions">
-                                <span>R$ 2,00</span>
-                                <a href="" class="ml-1">remover</a>
-                            </div>
-                        </div>
-
-                        <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
-                            <div class="title-product">
-                                1 <b>Coxinha</b>
-                            </div>
-                            <div class="price-actions">
-                                <span>R$ 2,00</span>
-                                <a href="" class="ml-1">remover</a>
-                            </div>
-                        </div>
-
-                        <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
-                            <div class="title-product">
-                                1 <b>Esfirra</b>
-                            </div>
-                            <div class="price-actions">
-                                <span>R$ 2,00</span>
-                                <a href="" class="ml-1">remover</a>
-                            </div>
-                        </div>
-
-                        <div class="bag-item mt-5 d-flex flex-row justify-content-between align-items-center">
-                            <div class="title-product">
-                                <b>TOTAL:</b>
-                            </div>
-                            <div class="price-actions">
-                                <span>
-                                    <b>R$ 6,00</b>
-                                </span>
-                            </div>
-                        </div>
-
+                        @endfor
                         
                         <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar mais itens</a>
-                    </div> -->
+                    </div>
                 @else
                     <h1>Vazia</h1>
                 @endif
