@@ -62,5 +62,7 @@ Route::get('/menu/categories', 'MenuController@indexCategories');
 Route::get('/menu/{id}/products', 'MenuController@showProductsByCategory');
 Route::get('/menu/item/{id}', 'MenuController@show');
 
+// Rotas Request
+Route::post('/summary', 'RequestController@orderSummary');
 
 

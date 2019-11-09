@@ -5,7 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 @if(count($addresses) > 0)
-                    <form action="" class="mb-5">
+                    <form action="/summary" method="POST" class="mb-5">
+                        @csrf
                         @foreach($addresses as $address)
                             <div class="card p-3 mb-3">
                                 <div class="form-check d-flex justify-content-between align-items-center">
