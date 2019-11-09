@@ -32,9 +32,13 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($action = 0)
     {
-        return view('pages.address.newAddress');
+        if ($action == 0) {
+            return view('pages.address.newAddress');
+        } else {
+            return view('pages.address.newAddress', compact('action'));
+        }
     }
 
     /**
@@ -62,6 +66,10 @@ class AddressController extends Controller
         }
 
         $address->save();
+
+        if(isset($address->action)){
+            return redirect('/selectaddress');
+        }
 
         return redirect('/addresses');
     }

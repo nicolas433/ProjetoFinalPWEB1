@@ -12,6 +12,9 @@
                     <div class="card-body">
                         <form action="/addresses" method="POST">
                             @csrf
+                            @if(isset($action))
+                                <input type="hidden" name="action" value="1">
+                            @endif
                             <div class="form-group">
                                 <label for="houseNumber">Numero da casa*</label>
                                 <input

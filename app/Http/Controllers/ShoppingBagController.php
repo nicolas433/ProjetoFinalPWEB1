@@ -87,7 +87,7 @@ class ShoppingBagController extends Controller
                 $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
             }
 
-            return view('pages.shoppingBag.index', compact(['products']));
+            return view('pages.shoppingBag.index', compact('products'));
 
         } else {
             return view('home');

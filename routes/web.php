@@ -47,6 +47,7 @@ Route::put(   '/addresses/{id}',        'AddressController@update');
 Route::delete('/addresses/delete/{id}', 'AddressController@destroy');
 
 Route::get('/selectaddress', 'SelectAddressController@index');
+Route::get('/selectaddress/{action}', 'AddressController@create');
 
 Route::get('/shoppingbag', 'ShoppingBagController@index')->name('shoppingbag');
 Route::post('/shoppingbag', 'ShoppingBagController@store')->name('shoppingbag');
