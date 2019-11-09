@@ -24,7 +24,7 @@
                 @endforeach
 
                 <div class="card p-3 fixed-bottom mt-5">
-                    <a class="btn btn-dark text-white btn-sm">Ver cardápio completo</a>
+                    <a href="/menu/categories" class="btn btn-dark text-white btn-sm p-3">Ver cardápio completo</a>
                 </div>
             @else
             <div class="card">

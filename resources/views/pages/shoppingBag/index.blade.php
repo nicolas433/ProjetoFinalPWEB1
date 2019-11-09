@@ -48,7 +48,7 @@
                     </div>
 
                     <!-- Botão para adicionar mais itens -->
-                    <a href="" class="btn btn-dark btn-sm mt-5">Adicionar mais itens</a>
+                    <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar mais itens</a>
                 </div>
 
                 <!-- Mensagem que aparece caso não existam itens na sacola -->
@@ -56,7 +56,7 @@
 
                 <!-- Só deve aparecer caso hajam itens na sacola -->
                 <div class="card p-3 fixed-bottom mt-5">
-                    <a class="btn btn-dark text-white btn-sm">Realizar pedido</a>
+                    <a class="btn btn-dark text-white btn-sm p-3">Realizar pedido</a>
                 </div>
             </div>
         </div>

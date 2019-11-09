@@ -1,0 +1,18 @@
+.card-category-item {
+    font-size: 24px;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-transform: none;
+    transition: all .5s;
+}
+
+.card-category-item:hover {
+    text-decoration: none;
+    color: #111;
+    background-color: #efefef;
+}
