@@ -13,11 +13,26 @@ class ShoppingBagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if (session()->has('bag')) {
             $bag = $request->session()->get('bag');
-            return view('pages.shoppingBag.index', compact('bag'));
+            
+            // Busca os produtos que estão na sacola de compras
+            $products = array();
+            for($i=0; $i < count($bag); $i++){
+                $product = Product::find($bag[$i]['productId']);
+                array_push($products, $product);
+            }
+
+            // Adiciona a quantidade e o preço a cada produto
+            for($i=0; $i < count($products); $i++){
+                $products[$i]->amount = $bag[$i]['amount'];
+                $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
+            }
+
+            return view('pages.shoppingBag.index', compact(['products']));
+            
         } else {
             return view('home');
         }
@@ -45,8 +60,7 @@ class ShoppingBagController extends Controller
         $amount = $request->input('amount');
         $totalValue = $request->input('totalValue');
 
-        // $request->session()->forget('bag');
-
+        $amount = intval($amount);
         if ($amount < 1) {
             $amount = 1;
         }
@@ -59,13 +73,15 @@ class ShoppingBagController extends Controller
             ]);
 
             $bag = $request->session()->get('bag');
-              
+            
+            // Busca os produtos que estão na sacola de compras
             $products = array();
             for($i=0; $i < count($bag); $i++){
                 $product = Product::find($bag[$i]['productId']);
                 array_push($products, $product);
             }
 
+            // Adiciona a quantidade e o preço a cada produto
             for($i=0; $i < count($products); $i++){
                 $products[$i]->amount = $bag[$i]['amount'];
                 $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
