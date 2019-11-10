@@ -73,7 +73,7 @@ class RequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "Metodo de confirmação do pedido";
     }
 
     /**

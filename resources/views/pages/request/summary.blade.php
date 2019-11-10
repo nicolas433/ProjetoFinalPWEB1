@@ -35,12 +35,14 @@
 
                         <a href="" class="btn btn-outline-dark btn-sm mt-5">Cancelar</a>
 
-                        <div class="card p-3 fixed-bottom mt-5">
+                        <form action="/request" method="POST" class="card p-3 fixed-bottom mt-5">
+                            @csrf
+                            <input type="hidden" name="addressId" value="{{ $address->id }}">
                             <button class="btn btn-dark d-flex justify-content-between">
                                 <span>Pedir!</span>
                                 <span>R$ XX,XX</span>
                             </button>
-                        </div>
+                        </form>
                     </div>
                 @else
                     <h1>Vazia</h1>

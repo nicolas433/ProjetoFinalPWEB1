@@ -65,5 +65,6 @@ Route::get('/menu/item/{id}', 'MenuController@show');
 
 // Rotas Request
 Route::post('/summary', 'RequestController@orderSummary');
+Route::post('/request', 'RequestController@store');
 
 
