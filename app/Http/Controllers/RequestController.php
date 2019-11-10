@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Product;
+use App\Address;
+
 class RequestController extends Controller
 {
     /**
@@ -17,7 +20,38 @@ class RequestController extends Controller
     }
 
     // Método responsável por construir o a exibição do resumo do pedido
-    public function orderSummary(Request $request) {
+    public function orderSummary(Request $request) 
+    {
+        if (session()->has('bag')) {
+
+            $bag = $request->session()->get('bag');
+            
+            // Busca os produtos que estão na sacola de compras
+            $products = array();
+            for($i=0; $i < count($bag); $i++){
+                $product = Product::find($bag[$i]['productId']);
+                array_push($products, $product);
+            }
+
+            // Adiciona a quantidade e o preço a cada produto
+            for($i=0; $i < count($products); $i++){
+                $products[$i]->amount = $bag[$i]['amount'];
+                $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
+            }
+
+            $addressSelected = $request->input('addressSelected');
+            $address = Address::find($addressSelected);
+
+            if(isset($address)) {
+                return view('pages.request.summary', compact(['products', 'address']));
+            } else {
+                return view('home');
+            }
+
+        } else {
+            return view('home');
+        }
+
         return view('pages.request.summary');
     }
 
