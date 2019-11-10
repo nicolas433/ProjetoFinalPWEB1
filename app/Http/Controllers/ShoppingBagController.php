@@ -136,6 +136,6 @@ class ShoppingBagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "Remover produto da sacola de compras";
     }
 }

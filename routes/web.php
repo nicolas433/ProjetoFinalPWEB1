@@ -50,7 +50,8 @@ Route::get('/selectaddress', 'SelectAddressController@index');
 Route::get('/selectaddress/{action}', 'AddressController@create');
 
 Route::get('/shoppingbag', 'ShoppingBagController@index')->name('shoppingbag');
-Route::post('/shoppingbag', 'ShoppingBagController@store')->name('shoppingbag');
+Route::post('/shoppingbag', 'ShoppingBagController@store');
+Route::delete('/shoppingbag/{id}', 'ShoppingBagController@destroy');
 
 Route::get('/history', 'HistoryController@index')->name('history');
 

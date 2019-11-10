@@ -13,7 +13,7 @@
                                 </div>
                                 <div class="price-actions">
                                     <span>R$ {{ $products[$i]->totalValue }}</span>
-                                    <a href="" class="ml-3">remover</a>
+                                    <a href="/shoppingbag/{{ $products[$i]->id }}" class="ml-3">remover</a>
                                 </div>
                             </div>
                         @endfor
