@@ -39,7 +39,7 @@
                             <a class="nav-link" href="{{ url('addresses') }}">Meus endereços</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('addresses') }}">Cardápio</a>
+                            <a class="nav-link" href="{{ url('/menu/categories') }}">Cardápio</a>
                         </li>
                     </ul>
 
