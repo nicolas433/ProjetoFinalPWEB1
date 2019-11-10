@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use App\Address;
+use App\Request;
 
 class RequestController extends Controller
 {
@@ -73,7 +74,41 @@ class RequestController extends Controller
      */
     public function store(Request $request)
     {
-        return "Metodo de confirmação do pedido";
+        // Chamarei de $req pq ja existe uma variável $request sendo usada
+        $req = new Request();
+
+        if (!auth()->user()->id) {
+            return view('/home');
+        }
+
+        $req->client_confirm = 1;
+        $req->user_id = auth()->user()->id;
+        $req->address_id = $request->input('addressId');
+        $req->status_id = 1;
+        $req->save();
+
+        // Cadastro dos registros da tabela request_products
+        // if (session()->has('bag')) {
+        //     $bag = $request->session()->get('bag');
+            
+        //     // Busca os produtos que estão na sacola de compras
+        //     $products = array();
+        //     for($i=0; $i < count($bag); $i++){
+        //         $product = Product::find($bag[$i]['productId']);
+        //         array_push($products, $product);
+        //     }
+
+        //     // Adiciona a quantidade e o preço a cada produto
+        //     for($i=0; $i < count($products); $i++){
+        //         $products[$i]->amount = $bag[$i]['amount'];
+        //         $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
+        //     }
+
+        //     return view('pages.shoppingBag.index', compact(['products']));
+            
+        // } else {
+        //     return view('home');
+        // }
     }
 
     /**
