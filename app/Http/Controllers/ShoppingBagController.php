@@ -134,8 +134,27 @@ class ShoppingBagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        return "Remover produto da sacola de compras";
+        if (session()->has('bag')) {
+            $bag = $request->session()->get('bag');
+
+            // Remove o produto escolhido do array bag
+            for($i = 0; $i < count($bag); $i++){
+                $key = array_search($id, $bag[$i]);
+                if($key!==false){
+                    unset($bag[$i]);
+                    break;
+                }
+            }
+
+            // Atualiza a sessão
+            $request->session()->forget('bag');
+            $request->session()->put('bag', $bag);
+
+            return $this->index($request);
+        }
+
+        return "erro";
     }
 }
