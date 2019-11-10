@@ -13,7 +13,11 @@
                                 </div>
                                 <div class="price-actions">
                                     <span>R$ {{ $products[$i]->totalValue }}</span>
-                                    <a href="/shoppingbag/{{ $products[$i]->id }}" class="ml-3">remover</a>
+                                    <form action="/shoppingbag/{{ $products[$i]->id }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="ml-3">remover</a>
+                                    </form>
                                 </div>
                             </div>
                         @endfor
