@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                @if(isset($products))
+                @if(count($products) > 0)
                     <div class="card p-3">
                         @for($i = 0; $i < count($products); $i++)
                             <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
@@ -21,7 +21,7 @@
                         <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar mais itens</a>
                     </div>
                 @else
-                    <h1>Vazia</h1>
+                    <h1>Sacola de compras vazia</h1>
                 @endif
 
                 
