@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use App\Address;
-use App\Request;
+use App\Solicitation; // Pedido
 
-class RequestController extends Controller
+class SolicitationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -75,17 +75,19 @@ class RequestController extends Controller
     public function store(Request $request)
     {
         // Chamarei de $req pq ja existe uma variável $request sendo usada
-        $req = new Request();
+        $solicitation = new Solicitation();
 
         if (!auth()->user()->id) {
             return view('/home');
         }
 
-        $req->client_confirm = 1;
-        $req->user_id = auth()->user()->id;
-        $req->address_id = $request->input('addressId');
-        $req->status_id = 1;
-        $req->save();
+        $solicitation->client_confirm = 1;
+        $solicitation->user_id = auth()->user()->id;
+        $solicitation->address_id = $request->input('addressId');
+        $solicitation->status_id = 1;
+        $solicitation->save();
+
+        print_r($solicitation->id);
 
         // Cadastro dos registros da tabela request_products
         // if (session()->has('bag')) {
