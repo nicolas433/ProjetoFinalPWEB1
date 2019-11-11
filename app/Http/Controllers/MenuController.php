@@ -15,17 +15,18 @@ class MenuController extends Controller
         if (!session()->has('bag')) {
             $request->session()->put('bag', []);
         }
-        
+
         $categories = Category::all()->where('operating', '=', '1');
         return view('pages.menu.categories', compact('categories'));
     }
 
     // Usado para exibir os produtos de uma categoria selecionada
-    public function showProductsByCategory($categoryId)
+    public function showProductsByCategory(Request $request, $categoryId)
     {
         $products = Product::all()->where('category_id', '=', $categoryId);
+        
         if (isset($products)) {
-            return view('pages.menu.productsByCategory', compact('products'));
+            return view('pages.menu.productsByCategory', compact(['products']));
         } else {
             return redirect('/home');
         }

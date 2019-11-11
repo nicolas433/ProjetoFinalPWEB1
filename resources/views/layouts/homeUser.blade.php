@@ -92,5 +92,8 @@
             @yield('content')
         </main>
     </div>
+    @hasSection('javascriptUser')
+        @yield('javascriptUser')  
+    @endif
 </body>
 </html>

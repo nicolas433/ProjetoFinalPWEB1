@@ -8,10 +8,20 @@
                 @component('components.titles', ['title'=>'Cardápio', 'subtitle'=>'descrição'])
                 @endcomponent
 
+                <form id="filter">
+                    <input
+                        id="inputFilter"
+                        type="text" 
+                        placeholder="Buscar produtos por nome" 
+                        name="name"
+                        onkeyup="productsFilter()"
+                    >
+                </form>
+
                 @foreach($products as $product)
-                    <div class="card p-3 my-3">
+                    <div class="card p-3 my-3 prod">
                         <div class="c-header d-flex justify-content-between mb-1">
-                            <h5>{{ $product->name }}</h5>
+                            <h5 class="productName">{{ $product->name }}</h5>
                             <h4>R$ {{ $product->price }}</h4>
                         </div>
                         <div class="c-body">
@@ -27,4 +37,8 @@
         </div>
     </div>
 </div>
+
+    @section('javascriptUser')
+        <script src="{{ asset('js/productsFilter.js') }}"></script>
+    @endsection
 @endsection
