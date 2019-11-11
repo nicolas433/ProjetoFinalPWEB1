@@ -58,7 +58,7 @@
                             <input type="hidden" name="addressId" value="{{ $address->id }}">
                             <button class="btn btn-dark d-flex justify-content-between">
                                 <span>Pedir!</span>
-                                <span>R$ XX,XX</span>
+                                <span>R$ {{ $total }}</span>
                             </button>
                         </form>
                     </div>
