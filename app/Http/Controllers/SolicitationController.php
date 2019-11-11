@@ -18,12 +18,16 @@ class SolicitationController extends Controller
      */
     public function index()
     {
-        return view('pages.myrequests.index');
+        $userId = auth()->user()->id;
+
+        $requests = Solicitation::all()->where( 'user_id', '=', $userId);
+        
+        return view('pages.myrequests.index', compact('requests'));
     }
 
     // Método responsável por construir o a exibição do resumo do pedido
     public function orderSummary(Request $request) 
-    {
+    {                                                                                                                                                                                                                 
         if (session()->has('bag')) {
 
             $bag = $request->session()->get('bag');
@@ -128,7 +132,7 @@ class SolicitationController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
