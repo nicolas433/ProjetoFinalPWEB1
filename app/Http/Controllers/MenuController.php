@@ -23,7 +23,7 @@ class MenuController extends Controller
         if (isset($products)) {
             return view('pages.menu.productsByCategory', compact('products'));
         } else {
-            return view('home');
+            return redirect('/home');
         }
     }
 
@@ -60,7 +60,7 @@ class MenuController extends Controller
         if (isset($product)) {
             return view('pages.menu.selectedItem', compact('product'));
         } else {
-            return view('home');
+            return redirect('/home');
         }
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Address;
 use App\Solicitation; // Pedido
+use App\RequestProduct;
 
 class SolicitationController extends Controller
 {
@@ -74,7 +75,6 @@ class SolicitationController extends Controller
      */
     public function store(Request $request)
     {
-        // Chamarei de $req pq ja existe uma variável $request sendo usada
         $solicitation = new Solicitation();
 
         if (!auth()->user()->id) {
@@ -87,30 +87,39 @@ class SolicitationController extends Controller
         $solicitation->status_id = 1;
         $solicitation->save();
 
-        print_r($solicitation->id);
-
-        // Cadastro dos registros da tabela request_products
-        // if (session()->has('bag')) {
-        //     $bag = $request->session()->get('bag');
+        if (session()->has('bag')) {
+            $bag = $request->session()->get('bag');
             
-        //     // Busca os produtos que estão na sacola de compras
-        //     $products = array();
-        //     for($i=0; $i < count($bag); $i++){
-        //         $product = Product::find($bag[$i]['productId']);
-        //         array_push($products, $product);
-        //     }
+            // Busca os produtos que estão na sacola de compras
+            $products = array();
+            for($i=0; $i < count($bag); $i++){
+                $product = Product::find($bag[$i]['productId']);
+                array_push($products, $product);
+            }
 
-        //     // Adiciona a quantidade e o preço a cada produto
-        //     for($i=0; $i < count($products); $i++){
-        //         $products[$i]->amount = $bag[$i]['amount'];
-        //         $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
-        //     }
+            // Adiciona a quantidade e o preço a cada produto
+            for($i=0; $i < count($products); $i++){
+                $products[$i]->amount = $bag[$i]['amount'];
+                $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
+            }
 
-        //     return view('pages.shoppingBag.index', compact(['products']));
+            // Cadastro dos registros da tabela request_products
+            for($i=0; $i < count($products); $i++) {
+                $requestProduct = new RequestProduct();
+                $requestProduct->request_id = $solicitation->id;
+                $requestProduct->product_id = $products[$i]->id;
+                $requestProduct->amount = $products[$i]->amount;
+                $requestProduct->save();
+            }
+
+            // Limpa a sessão
+            $request->session()->forget('bag');
+
+            return "Foi!";
             
-        // } else {
-        //     return view('home');
-        // }
+        } else {
+            return redirect('/home');
+        }
     }
 
     /**

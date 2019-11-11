@@ -34,7 +34,7 @@ class ShoppingBagController extends Controller
             return view('pages.shoppingBag.index', compact(['products']));
             
         } else {
-            return view('home');
+            return redirect('/home');
         }
     }
 
@@ -90,7 +90,7 @@ class ShoppingBagController extends Controller
             return view('pages.shoppingBag.index', compact('products'));
 
         } else {
-            return view('home');
+            return redirect('/home');
         }
     }
 
@@ -155,6 +155,6 @@ class ShoppingBagController extends Controller
             return $this->index($request);
         }
 
-        return "erro";
+        return redirect('/home');
     }
 }
