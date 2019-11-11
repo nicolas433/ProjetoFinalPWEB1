@@ -10,8 +10,12 @@ use App\Category;
 class MenuController extends Controller
 {
     // Usado para exibir as categorias do cardápio ao cliente
-    public function indexCategories()
+    public function indexCategories(Request $request)
     {
+        if (!session()->has('bag')) {
+            $request->session()->put('bag', []);
+        }
+        
         $categories = Category::all()->where('operating', '=', '1');
         return view('pages.menu.categories', compact('categories'));
     }
