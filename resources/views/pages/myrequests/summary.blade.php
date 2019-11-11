@@ -9,6 +9,9 @@
 
                 @if(isset($products))
                     <div class="card p-3 mb-5">
+                    @php
+                        $total = 0;
+                    @endphp
                         @for($i = 0; $i < count($products); $i++)
                             <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
                                 <div class="title-product">
@@ -16,9 +19,21 @@
                                 </div>
                                 <div class="price-actions">
                                     <span>R$ {{ $products[$i]->totalValue }}</span>
+                                    @php
+                                        $total += $products[$i]->totalValue;
+                                    @endphp
                                 </div>
                             </div>
                         @endfor
+                        <br>
+                            <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
+                                <div class="title-product">
+                                    <b>Total</b>
+                                </div>
+                                <div class="price-actions">
+                                    <span>R$ {{ $total }}</span>
+                                </div>
+                            </div>
                         <hr>
                         @if (isset($address))
                             <div>
