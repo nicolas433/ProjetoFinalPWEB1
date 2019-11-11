@@ -18,7 +18,7 @@ class SolicitationController extends Controller
      */
     public function index()
     {
-        return view('pages.request.index');
+        return view('pages.myrequests.index');
     }
 
     // Método responsável por construir o a exibição do resumo do pedido
@@ -45,16 +45,14 @@ class SolicitationController extends Controller
             $address = Address::find($addressSelected);
 
             if(isset($address)) {
-                return view('pages.request.summary', compact(['products', 'address']));
+                return view('pages.myrequests.summary', compact(['products', 'address']));
             } else {
-                return view('home');
+                return redirect('/home');
             }
 
         } else {
-            return view('home');
+            return redirect('/home');
         }
-
-        return view('pages.request.summary');
     }
 
     /**
@@ -78,7 +76,7 @@ class SolicitationController extends Controller
         $solicitation = new Solicitation();
 
         if (!auth()->user()->id) {
-            return view('/home');
+            return redirect('/home');
         }
 
         $solicitation->client_confirm = 1;
@@ -115,7 +113,7 @@ class SolicitationController extends Controller
             // Limpa a sessão
             $request->session()->forget('bag');
 
-            return "Foi!";
+            return view('pages.myrequests.requestDone');
             
         } else {
             return redirect('/home');

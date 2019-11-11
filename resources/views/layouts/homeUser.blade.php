@@ -41,6 +41,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ url('/menu/categories') }}">Cardápio</a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('/requests') }}">Meus pedidos</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
