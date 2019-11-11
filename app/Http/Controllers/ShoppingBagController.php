@@ -17,7 +17,7 @@ class ShoppingBagController extends Controller
     {
         if (session()->has('bag')) {
             $bag = $request->session()->get('bag');
-            
+
             // Busca os produtos que estão na sacola de compras
             $products = array();
             for($i=0; $i < count($bag); $i++){
@@ -144,13 +144,18 @@ class ShoppingBagController extends Controller
                 $key = array_search($id, $bag[$i]);
                 if($key!==false){
                     unset($bag[$i]);
-                    break;
                 }
+            }
+
+            // Ajusta as posições do array $bag
+            $newBag = [];
+            foreach($bag as $b){
+                array_push($newBag, $b);
             }
 
             // Atualiza a sessão
             $request->session()->forget('bag');
-            $request->session()->put('bag', $bag);
+            $request->session()->put('bag', $newBag);
 
             return $this->index($request);
         }
