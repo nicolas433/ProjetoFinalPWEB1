@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8" id="prods">
             @if (count($products) > 0)
                 @component('components.titles', ['title'=>'Cardápio', 'subtitle'=>'descrição'])
                 @endcomponent
@@ -28,6 +28,8 @@
                             <a href="/menu/item/{{ $product->id }}" class="btn btn-dark btn-sm">Adicionar a sacola</a>
                         </div>
                     </div>
+
+                    <h3 id="not-found" style="display:none;" >Nenhum produto encontrado</h3>
                 @endforeach
             @else
             <div class="card">
