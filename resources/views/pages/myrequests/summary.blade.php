@@ -4,6 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
+                @component('components.titles', ['title'=>'Resumo do pedido', 'subtitle'=>''])
+                @endcomponent
+
                 @if(isset($products))
                     <div class="card p-3 mb-5">
                         @for($i = 0; $i < count($products); $i++)
@@ -33,7 +36,7 @@
                             </div>
                         @endif
 
-                        <a href="" class="btn btn-outline-dark btn-sm mt-5">Cancelar</a>
+                        <a href="/shoppingbag" class="btn btn-outline-dark btn-sm mt-5">Cancelar</a>
 
                         <form action="/request" method="POST" class="card p-3 fixed-bottom mt-5">
                             @csrf

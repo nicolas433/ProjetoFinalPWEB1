@@ -15,27 +15,26 @@ class ShoppingBagController extends Controller
      */
     public function index(Request $request)
     {
-        if (session()->has('bag')) {
-            $bag = $request->session()->get('bag');
-
-            // Busca os produtos que estão na sacola de compras
-            $products = array();
-            for($i=0; $i < count($bag); $i++){
-                $product = Product::find($bag[$i]['productId']);
-                array_push($products, $product);
-            }
-
-            // Adiciona a quantidade e o preço a cada produto
-            for($i=0; $i < count($products); $i++){
-                $products[$i]->amount = $bag[$i]['amount'];
-                $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
-            }
-
-            return view('pages.shoppingBag.index', compact(['products']));
-            
-        } else {
-            return redirect('/home');
+        if (!session()->has('bag')){
+            $request->session()->put('bag', []);
         }
+
+        $bag = $request->session()->get('bag');
+
+        // Busca os produtos que estão na sacola de compras
+        $products = array();
+        for($i=0; $i < count($bag); $i++){
+            $product = Product::find($bag[$i]['productId']);
+            array_push($products, $product);
+        }
+
+        // Adiciona a quantidade e o preço a cada produto
+        for($i=0; $i < count($products); $i++){
+            $products[$i]->amount = $bag[$i]['amount'];
+            $products[$i]->totalValue = $products[$i]->price * $bag[$i]['amount'];
+        }
+
+        return view('pages.shoppingBag.index', compact(['products']));
     }
 
     /**
