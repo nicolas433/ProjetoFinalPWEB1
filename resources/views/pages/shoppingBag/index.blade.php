@@ -34,21 +34,15 @@
                         <span>Valor final R$ {{ $total }}</span>
 
                         <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar mais itens</a>
+                    
+                        <div class="card p-3 fixed-bottom mt-5">
+                            <a href="/selectaddress" class="btn btn-dark text-white btn-sm p-3">Realizar pedido</a>
+                        </div>
                     </div>
                 @else
                     <h1>Sacola de compras vazia</h1>
                     <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar itens</a>
                 @endif
-
-                
-
-                <!-- Mensagem que aparece caso não existam itens na sacola -->
-                <!-- <h4>Não há itens na sacola</h4> -->
-
-                <!-- Só deve aparecer caso hajam itens na sacola -->
-                <div class="card p-3 fixed-bottom mt-5">
-                    <a href="/selectaddress" class="btn btn-dark text-white btn-sm p-3">Realizar pedido</a>
-                </div>
             </div>
         </div>
     </div>          
