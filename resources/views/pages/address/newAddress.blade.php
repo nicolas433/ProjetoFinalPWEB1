@@ -4,11 +4,10 @@
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
+                @component('components.titles', ['title'=>'Novo endereço', 'subtitle'=>''])
+                @endcomponent
+
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between">
-                        Novo endereço
-                    </div>
-    
                     <div class="card-body">
                         <form action="/addresses" method="POST">
                             @csrf
@@ -77,7 +76,12 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-                            <a href="/addresses" class="btn btn-danger btn-sm">Cancelar</a>
+                            @if(isset($action))
+                                <a href="/selectaddress" class="btn btn-danger btn-sm">Cancelar</a>
+                            @else
+                                <a href="/addresses" class="btn btn-danger btn-sm">Cancelar</a>
+                            @endif
+                            
                         </form>
                     </div>
                 </div>

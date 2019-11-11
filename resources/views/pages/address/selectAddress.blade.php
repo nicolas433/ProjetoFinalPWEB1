@@ -4,6 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
+                @component('components.titles', ['title'=>'Endereço', 'subtitle'=>'Selecione o endereço para a entrega'])
+                @endcomponent
+
                 @if(count($addresses) > 0)
                     <form action="/summary" method="POST" class="mb-5">
                         @csrf
@@ -38,7 +41,7 @@
                     <div>
                         <h3>Ops! Nenhum endereço cadastrado!</h3>
                         <h4>Cadastre um novo endereço para continuar</h4>
-                        <a href="" class="btn btn-dark btn-sm col-md-12">Adicionar outro endereço</a>
+                        <a href="/selectaddress/{{ 1 }}" class="btn btn-dark btn-sm col-md-12">Cadastrar um endereço</a>
                     </div>
                 @endif
             </div>

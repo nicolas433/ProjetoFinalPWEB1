@@ -4,6 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
+                @component('components.titles', ['title'=>'Sacola de compras', 'subtitle'=>'descrição'])
+                @endcomponent
+
                 @if(count($products) > 0)
                     <div class="card p-3">
                     @php

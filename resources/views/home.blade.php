@@ -5,11 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             @if (count($products) > 0)
-                <div class="container">
-                    <div class="row d-flex justify-content-end">
-                        <a href="/shoppingbag" class="btn btn-sm btn-dark">Sacola</a>
-                    </div>
-                </div>
+                @component('components.titles', ['title'=>'Home', 'subtitle'=>'teste'])
+                @endcomponent
 
                 @foreach($products as $product)
                     <div class="card p-3 my-3">

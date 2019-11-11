@@ -4,6 +4,9 @@
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
+                @component('components.titles', ['title'=>'Meus endereços', 'subtitle'=>'Lista de endereços...'])
+                @endcomponent
+
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         Endereços cadastrados

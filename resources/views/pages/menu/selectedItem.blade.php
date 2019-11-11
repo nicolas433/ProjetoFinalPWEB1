@@ -1,11 +1,12 @@
 @extends('layouts.homeUser')
 
-
-
 @section('content')
 <div onload="setValue()" class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
+                @component('components.titles', ['title'=>'Seleciona a quantidade', 'subtitle'=>'descrição'])
+                @endcomponent
+
                 <div class="card p-3">
                     <div class="desc">
                         <h4>{{ $product->name }}</h4>

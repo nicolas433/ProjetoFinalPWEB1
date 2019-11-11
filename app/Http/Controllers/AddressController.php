@@ -67,7 +67,7 @@ class AddressController extends Controller
 
         $address->save();
 
-        if(isset($address->action)){
+        if($request->input('action')){
             return redirect('/selectaddress');
         }
 
