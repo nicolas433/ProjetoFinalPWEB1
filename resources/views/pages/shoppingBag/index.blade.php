@@ -34,6 +34,7 @@
                     </div>
                 @else
                     <h1>Sacola de compras vazia</h1>
+                    <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar itens</a>
                 @endif
 
                 
