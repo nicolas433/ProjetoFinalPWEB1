@@ -8,6 +8,7 @@ use App\Product;
 use App\Address;
 use App\Solicitation; // Pedido
 use App\RequestProduct;
+use App\Status;
 
 class SolicitationController extends Controller
 {
@@ -21,6 +22,11 @@ class SolicitationController extends Controller
         $userId = auth()->user()->id;
 
         $requests = Solicitation::all()->where( 'user_id', '=', $userId);
+
+        foreach($requests as $request) {
+            $request = Status::find($request->status_id);
+            $request->status = $request->title;
+        }
         
         return view('pages.myrequests.index', compact('requests'));
     }
