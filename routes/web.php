@@ -55,7 +55,15 @@ Route::delete('/shoppingbag/{id}', 'ShoppingBagController@destroy');
 
 Route::get('/history', 'HistoryController@index')->name('history');
 
+
+
+
 Route::get('/clients', 'ClientController@index')->name('clients');
+Route::delete('/clients/delete/{id}', 'ClientController@destroy');
+
+
+
+
 
 Route::get('/statistics', 'StatisticController@index')->name('statistics');
 
