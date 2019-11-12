@@ -96,8 +96,8 @@
             @yield('content')
         </main>
     </div>
-    @hasSection('javascript')
-        @yield('javascript')  
+    @hasSection('javascript2')
+        @yield('javascript2')  
     @endif
 </body>
 </html>

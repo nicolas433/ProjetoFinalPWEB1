@@ -33,6 +33,15 @@ class SolicitationController extends Controller
         return view('pages.myrequests.index', compact('requests'));
     }
 
+    public function indexApi() {
+        // where
+        $solicitations = Solicitation::all();
+        $qtd = count($solicitations);
+
+        // return $qtd;
+        return $solicitations->toJson();
+    }
+
     // Método responsável por construir o a exibição do resumo do pedido
     public function orderSummary(Request $request) 
     {                                                                                                                                                                                                                 
