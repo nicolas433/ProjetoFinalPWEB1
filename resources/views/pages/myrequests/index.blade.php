@@ -8,21 +8,23 @@
                 @endcomponent
 
                 @if(count($requests) > 0)
-                    <div class="card p-3">
-                        @foreach($requests as $request)
-                             <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
-                                <div class="price-actions">
-                                    <span>{{ $request->id }}</span>
+                    @foreach($requests as $request)
+                        <div class="card p-3 mb-3">
+                             <div class="mb-3 d-flex flex-row justify-content-between align-items-center">
+                                <div class="">
+                                    <span>Protocolo: {{ $request->id }}</span>
+                                    <div class="status">
+                                        <span>Cor do código</span>
+                                        <p>Status: {{ $request->status }}</p>
+                                        <p>Data da realização do pedido: {{ $request->created_at }}</p>
+                                    </div>
+                                </div>
+                                <div class="request-actions">
+                                    <a href="/requests/request/{{ $request->id }}" class="btn btn-dark btn-sm">Ver</a>
                                 </div>
                             </div>
-                        @endforeach
-
-                        <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar mais itens</a>
-                    
-                        <div class="card p-3 fixed-bottom mt-5">
-                            <a href="/selectaddress" class="btn btn-dark text-white btn-sm p-3">Realizar pedido</a>
                         </div>
-                    </div>
+                    @endforeach
                 @else
                     <h1>Sem solicitações</h1>
                 @endif

@@ -24,8 +24,9 @@ class SolicitationController extends Controller
         $requests = Solicitation::all()->where( 'user_id', '=', $userId);
 
         foreach($requests as $request) {
-            $request = Status::find($request->status_id);
-            $request->status = $request->title;
+            $status = Status::find($request->status_id);
+            $request->status = $status->title;
+            $request->status_id = $status->id;
         }
         
         return view('pages.myrequests.index', compact('requests'));
