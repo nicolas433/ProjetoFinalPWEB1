@@ -57,7 +57,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
