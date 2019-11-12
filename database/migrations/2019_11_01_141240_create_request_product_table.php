@@ -18,6 +18,7 @@ class CreateRequestProductTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('request_id');
             $table->integer('amount')->default(1);
+            $table->float('total');
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('request_id')->references('id')->on('requests');
             $table->timestamps();

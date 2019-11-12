@@ -24,8 +24,9 @@ class SolicitationController extends Controller
         $requests = Solicitation::all()->where( 'user_id', '=', $userId);
 
         foreach($requests as $request) {
-            $request = Status::find($request->status_id);
-            $request->status = $request->title;
+            $status = Status::find($request->status_id);
+            $request->status = $status->title;
+            $request->status_id = $status->id;
         }
         
         return view('pages.myrequests.index', compact('requests'));
@@ -117,6 +118,7 @@ class SolicitationController extends Controller
                 $requestProduct->request_id = $solicitation->id;
                 $requestProduct->product_id = $products[$i]->id;
                 $requestProduct->amount = $products[$i]->amount;
+                $requestProduct->total = $products[$i]->totalValue;
                 $requestProduct->save();
             }
 
@@ -138,7 +140,13 @@ class SolicitationController extends Controller
      */
     public function show($id)
     {
+        $solicitation = Solicitation::find($id);
+        $status = Status::find($solicitation->status_id);
+        
+        // Selecione todos os produtos, quantidade, valor total
 
+
+        //return view('pages.myrequests.selectedRequest');
     }
 
     /**
