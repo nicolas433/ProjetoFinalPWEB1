@@ -6,8 +6,11 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between">
+                <div class="card-header d-flex justify-content-between">
                         Clientes
+                        <a href="/clients/todos" class="btn btn-dark btn-sm">Todos os clientes</a>
+                        <a href="/clients/ativos" class="btn btn-dark btn-sm">Clientes ativos</a>
+                        <a href="/clients/inativos" class="btn btn-dark btn-sm">Clientes inativos</a>
                     </div>
     
                     <div class="card-body">

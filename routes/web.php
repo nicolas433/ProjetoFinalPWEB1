@@ -58,7 +58,7 @@ Route::get('/history', 'HistoryController@index')->name('history');
 
 
 
-Route::get('/clients', 'ClientController@index')->name('clients');
+Route::get('/clients/{status}', 'ClientController@index')->name('clients');
 Route::delete('/clients/delete/{id}', 'ClientController@destroy');
 
 
