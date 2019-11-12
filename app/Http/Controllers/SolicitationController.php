@@ -36,12 +36,11 @@ class SolicitationController extends Controller
     public function indexApi() {
         // where
         $solicitations = Solicitation::all();
-        $qtd = count($solicitations);
 
         // return $qtd;
         return $solicitations->toJson();
     }
-    
+
     public function admHistory($userId)
     {
         if(auth()->user()->id == 1){
