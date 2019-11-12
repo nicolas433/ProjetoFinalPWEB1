@@ -34,8 +34,8 @@ class SolicitationController extends Controller
     }
 
     public function indexApi() {
-        // where
-        $solicitations = Solicitation::all();
+        $userId = auth()->user()->id;
+        $solicitations = Solicitation::all()->where( 'user_id', '=', $userId);
 
         // return $qtd;
         return $solicitations->toJson();
