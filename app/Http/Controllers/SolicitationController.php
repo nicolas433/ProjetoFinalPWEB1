@@ -41,6 +41,24 @@ class SolicitationController extends Controller
         // return $qtd;
         return $solicitations->toJson();
     }
+    
+    public function admHistory($userId)
+    {
+        if(auth()->user()->id == 1){
+            $requests = Solicitation::all()->where( 'user_id', '=', $userId);
+    
+            foreach($requests as $request) {
+                $status = Status::find($request->status_id);
+                $request->status = $status->title;
+                $request->status_id = $status->id;
+            }
+            
+            return view('pages.myrequests.index', compact('requests'));
+        }else{
+            return view('pages.myrequests.home');
+        }
+        
+    }
 
     // Método responsável por construir o a exibição do resumo do pedido
     public function orderSummary(Request $request) 

@@ -59,6 +59,7 @@ Route::get('/history', 'HistoryController@index')->name('history');
 
 
 Route::get('/clients/{status}', 'ClientController@index')->name('clients');
+Route::get('/clients/requests/{id}', 'SolicitationController@admHistory'); // Listar todos os pedidos para o cliente
 Route::delete('/clients/delete/{id}', 'ClientController@destroy');
 
 
