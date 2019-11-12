@@ -118,6 +118,7 @@ class SolicitationController extends Controller
                 $requestProduct->request_id = $solicitation->id;
                 $requestProduct->product_id = $products[$i]->id;
                 $requestProduct->amount = $products[$i]->amount;
+                $requestProduct->total = $products[$i]->totalValue;
                 $requestProduct->save();
             }
 
