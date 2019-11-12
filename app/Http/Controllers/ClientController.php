@@ -82,6 +82,11 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = User::find($id);
+        if (isset($client)) {
+            $client->operating = '0';
+            $client->save();
+        }
+        return redirect('/clients');
     }
 }

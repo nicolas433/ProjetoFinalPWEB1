@@ -34,7 +34,7 @@
                                             >
                                                 Editar
                                             </a>
-                                            <form onsubmit="return confirm('Deseja realmente deletar esse cliente?')" action="" method="POST">
+                                            <form onsubmit="return confirm('Deseja realmente deletar esse cliente?')" action="/clients/delete/{{$client->id}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-sm btn-danger">
