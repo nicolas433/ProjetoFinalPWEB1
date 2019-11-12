@@ -139,7 +139,13 @@ class SolicitationController extends Controller
      */
     public function show($id)
     {
+        $solicitation = Solicitation::find($id);
+        $status = Status::find($solicitation->status_id);
+        
+        // Selecione todos os produtos, quantidade, valor total
 
+
+        //return view('pages.myrequests.selectedRequest');
     }
 
     /**
