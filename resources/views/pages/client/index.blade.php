@@ -34,11 +34,20 @@
                             <tbody>
                                 @foreach($clients as $client)
                                     <tr>
-                                        <td id="clientEmail" >{{ $client->email }}</td>
-                                        <td id="clientName"  >{{ $client->name }}</td>
+                                        <td id="clientEmail" >
+                                            {{ $client->email }}
+                                        </td>
+                                        <td id="clientName"  >
+                                            {{ $client->name }}
+                                        </td>
                                         <td>{{ $client->operating }}</td>
                                         <td class="d-flex justify-content-left">
-
+                                        <a
+                                            href="/clients/requests/{{ $client->id }}"
+                                            class="btn btn-primary btn-sm mr-2"
+                                        >
+                                            Histórico
+                                        </a>
                                             <form onsubmit="return confirm('Deseja realmente deletar esse cliente?')" action="/clients/delete/{{$client->id}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
