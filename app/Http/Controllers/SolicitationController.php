@@ -10,6 +10,7 @@ use App\Solicitation; // Pedido
 use App\RequestProduct;
 use App\Status;
 
+
 class SolicitationController extends Controller
 {
     /**
@@ -64,6 +65,18 @@ class SolicitationController extends Controller
         } else {
             return redirect('/home');
         }
+    }
+
+    public function cancel($id)
+    {
+        $solicitation = Solicitation::find($id);
+
+        if(isset($solicitation)){
+            $solicitation->status_id = 2;
+            $solicitation->save();
+        }
+
+        return $this->index();
     }
 
     /**
