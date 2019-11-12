@@ -26,7 +26,7 @@
                             <thead>
                                 <tr>
                                     <th>Email<div><input id="filtroEmail"/></div></th>
-                                    <th>Nome</th>
+                                    <th>Nome<div><input id="filtroName"/></th>
                                     <th>Ativo</th>
                                     <th>Ações</th>
                                 </tr>
@@ -61,16 +61,27 @@
     </div>
 
     <script>
-        var filtro = document.getElementById('filtroEmail');
-        var tabela = document.getElementById('lista');
+        var filtroEmail = document.getElementById('filtroEmail');
+        var tableEmail = document.getElementById('lista');
 
-        filtro.onkeyup = function() {
-            var nomeFiltro = filtro.value;
-            for (var i = 1; i < tabela.rows.length; i++) {
-                var conteudoCelula = tabela.rows[i].cells[0].innerText;
-                console.log(tabela.rows[i].cells[0].innerText);
+        filtroEmail.onkeyup = function() {
+            var nomeFiltro = filtroEmail.value;
+            for (var i = 1; i < tableEmail.rows.length; i++) {
+                var conteudoCelula = tableEmail.rows[i].cells[0].innerText;
                 var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
-                tabela.rows[i].style.display = corresponde ? '' : 'none';
+                tableEmail.rows[i].style.display = corresponde ? '' : 'none';
+            }
+        };
+        //
+        var filtroName = document.getElementById('filtroName');
+        var tableName = document.getElementById('lista');
+
+        filtroName.onkeyup = function() {
+            var nomeFiltro = filtroName.value;
+            for (var i = 1; i < tableName.rows.length; i++) {
+                var conteudoCelula = tableName.rows[i].cells[1].innerText;
+                var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+                tableName.rows[i].style.display = corresponde ? '' : 'none';
             }
         };
 
