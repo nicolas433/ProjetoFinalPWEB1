@@ -78,5 +78,6 @@ Route::post('/request', 'SolicitationController@store');
 // Histórico de pedidos e acompanhar pedido
 Route::get('/requests', 'SolicitationController@index'); // Listar todos os pedidos para o cliente
 Route::get('/requests/request/{id}', 'SolicitationController@show'); // Exibir detalhes de um pedido
+Route::get('/requests/request/cancel/{id}', 'SolicitationController@cancel');
 
 

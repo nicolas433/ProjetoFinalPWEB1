@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="actions row p-3">
-                        <a href="" class="btn btn-dark btn-sm col-sm-12">Cancelar Pedido</a>
+                        <a href="/requests/request/cancel/{{ $solicitation->id }}" class="btn btn-dark btn-sm col-sm-12">Cancelar Pedido</a>
                     </div>
                 </div>
             </div>
