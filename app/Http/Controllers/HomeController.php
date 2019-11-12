@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Product;
+use App\Solicitation;
+use App\Status;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -26,7 +29,13 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if (auth()->user()->is_admin == 1) {
-            return view('admin');
+            $solicitations = Solicitation::all()->where('status_id', '=', '1');
+            foreach($solicitations as $solicitation) {
+                $user = User::find($solicitation->user_id);
+                $solicitation->user = $user->name;
+            }
+
+            return view('admin', compact(['solicitations']));
             
         } else {
             // Cria uma sessão bag caso ela não exista

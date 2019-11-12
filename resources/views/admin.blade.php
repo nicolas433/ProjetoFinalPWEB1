@@ -4,13 +4,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
- 
-                <div class="card-body" id="request-container">
-                    <h3>Admin page!</h3>
-                </div>
-            </div>
+            @if(count($solicitations) > 0)
+                @foreach($solicitations as $solicitation)
+                    <div class="card p-3">
+                        <h3>Novo pedido!</h3>
+                        <p>Protocolo: {{ $solicitation->id }}</p>
+                        <p>Cliente: {{ $solicitation->user }}</p>
+                        <a href="" class="btn btn-dark btn-sm">Ver</a>
+                    </div>
+                @endforeach
+            @else
+                <h4>Não há pedidos</h4>
+            @endif
         </div>
     </div>
 </div>
