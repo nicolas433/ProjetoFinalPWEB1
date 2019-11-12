@@ -13,9 +13,18 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($status = 'todos')
     {
-        $clients = User::all()->where('operating', '=', '1');                
+        if($status == "todos"){
+            $clients = User::all();
+        }else if($status == "ativos"){
+            $clients = User::all()->where('operating', '=', '1');
+        }else if($status == "inativos"){
+            $clients = User::all()->where('operating', '=', '0');
+        }else{
+            $clients = User::all();
+        }
+
         return view('pages.client.index', compact('clients'));
     }
 
