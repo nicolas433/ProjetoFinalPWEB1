@@ -140,13 +140,19 @@ class SolicitationController extends Controller
      */
     public function show($id)
     {
+        // Busca todas as informações de um pedido
         $solicitation = Solicitation::find($id);
+        $address = Address::find($solicitation->address_id);
         $status = Status::find($solicitation->status_id);
-        
-        // Selecione todos os produtos, quantidade, valor total
+        $requestProducts = RequestProduct::all()->where('request_id', '=', $solicitation->id);
 
+        $products = [];
+        foreach($requestProducts as $requestProduct) {
+            $product = Product::find($requestProduct->product_id);
+            array_push($products, $product);
+        }
 
-        //return view('pages.myrequests.selectedRequest');
+        return view('pages.myrequests.selectedRequest', compact(['solicitation', 'address', 'status', 'requestProducts', 'products']));
     }
 
     /**
