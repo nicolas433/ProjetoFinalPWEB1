@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 class ClientController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('pages.client.index');
+        $clients = User::all()->where('operating', '=', '1');                
+        return view('pages.client.index', compact('clients'));
     }
 
     /**
