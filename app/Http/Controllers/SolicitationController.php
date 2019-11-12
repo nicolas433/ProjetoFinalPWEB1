@@ -149,13 +149,9 @@ class SolicitationController extends Controller
         $products = [];
         foreach($requestProducts as $requestProduct) {
             $product = Product::find($requestProduct->product_id);
+            $product->amount = $requestProduct->amount;
+            $product->totalValue = $requestProduct->total;
             array_push($products, $product);
-        }
-
-        // Adiciona a quantidade e o preço a cada produto
-        for($i=0; $i < count($products); $i++){
-            $products[$i]->amount = $requestProducts[$i]['amount'];
-            $products[$i]->totalValue = $products[$i]->price * $requestProducts[$i]['amount'];
         }
 
         return view('pages.myrequests.selectedRequest', compact(['solicitation', 'address', 'status', 'products']));
