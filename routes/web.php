@@ -81,4 +81,7 @@ Route::get('/requests', 'SolicitationController@index'); // Listar todos os pedi
 Route::get('/requests/request/{id}', 'SolicitationController@show'); // Exibir detalhes de um pedido
 Route::get('/requests/request/cancel/{id}', 'SolicitationController@cancel');
 
+// Ver um pedido (Admin) 
+Route::get('/admin/requests/request/{id}', 'SolicitationController@showSolicitation');
+Route::put('/admin/requests/request/{id}', 'SolicitationController@update');
 

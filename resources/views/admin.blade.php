@@ -36,7 +36,7 @@
                         $(`#card${elem.id}`).append(`<p>Cliente: ${elem.user}</p>`);
                         $(`#card${elem.id}`).append(`<p>Data de realização do pedido: ${elem.created_at}</p>`);
                         $(`#card${elem.id}`).append(`<p>Status do pedido: ${elem.status}</p>`);
-                        $(`#card${elem.id}`).append(`<a href='/pedido/${elem.id}' class='btn btn-dark btn-sm'>Ver</a>`);
+                        $(`#card${elem.id}`).append(`<a href='/admin/requests/request/${elem.id}' class='btn btn-dark btn-sm'>Ver</a>`);
                     });
                 } else {
                     console.log('iguais');

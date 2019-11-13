@@ -35,11 +35,8 @@ class SolicitationController extends Controller
     }
 
     public function indexApi(Request $request) {
-        $solictId = $request->id;
-
         $solicitations = Solicitation::where([
-            ['status_id', '<', '4'],
-            ['id', '>', $solictId]
+            ['status_id', '<', '4']
         ])->get();
 
         foreach($solicitations as $solicitation) {
@@ -207,6 +204,26 @@ class SolicitationController extends Controller
         return view('pages.myrequests.selectedRequest', compact(['solicitation', 'address', 'status', 'products']));
     }
 
+    public function showSolicitation($id)
+    {
+        // Busca todas as informações de um pedido
+        $solicitation = Solicitation::find($id);
+        $address = Address::find($solicitation->address_id);
+        $status = Status::find($solicitation->status_id);
+        $allStatus = Status::all();
+        $requestProducts = RequestProduct::all()->where('request_id', '=', $solicitation->id);
+
+        $products = [];
+        foreach($requestProducts as $requestProduct) {
+            $product = Product::find($requestProduct->product_id);
+            $product->amount = $requestProduct->amount;
+            $product->totalValue = $requestProduct->total;
+            array_push($products, $product);
+        }
+
+        return view('pages.solicitations.selectedSolicitation', compact(['solicitation', 'address', 'status', 'allStatus', 'products']));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -227,7 +244,11 @@ class SolicitationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $solicitation = Solicitation::find($id);
+        $solicitation->status_id = $request->input('newStatus');
+        $solicitation->save();
+
+        return redirect('/home');
     }
 
     /**
