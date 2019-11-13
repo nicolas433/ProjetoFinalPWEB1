@@ -9,6 +9,7 @@ use App\Address;
 use App\Solicitation; // Pedido
 use App\RequestProduct;
 use App\Status;
+use App\User;
 
 
 class SolicitationController extends Controller
@@ -33,11 +34,21 @@ class SolicitationController extends Controller
         return view('pages.myrequests.index', compact('requests'));
     }
 
-    public function indexApi() {
-        $userId = auth()->user()->id;
-        $solicitations = Solicitation::all()->where( 'user_id', '=', $userId);
+    public function indexApi(Request $request) {
+        $solictId = $request->id;
 
-        // return $qtd;
+        $solicitations = Solicitation::where([
+            ['status_id', '<', '4'],
+            ['id', '>', $solictId]
+        ])->get();
+
+        foreach($solicitations as $solicitation) {
+            $status = Status::find($solicitation->status_id);
+            $user = User::find($solicitation->user_id);
+            $solicitation->status = $status->title;
+            $solicitation->user = $user->name;
+        }
+
         return $solicitations->toJson();
     }
 

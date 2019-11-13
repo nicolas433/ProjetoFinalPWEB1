@@ -3,39 +3,49 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            @if(count($solicitations) > 0)
-                @foreach($solicitations as $solicitation)
-                    <div class="card p-3">
-                        <h3>Novo pedido!</h3>
-                        <p>Protocolo: {{ $solicitation->id }}</p>
-                        <p>Cliente: {{ $solicitation->user }}</p>
-                        <a href="" class="btn btn-dark btn-sm">Ver</a>
-                    </div>
-                @endforeach
-            @else
-                <h4>Não há pedidos</h4>
-            @endif
+        <div class="col-md-8" id="container">
+            
         </div>
     </div>
 </div>
 
 @section('javascript2')
 <script>
-    function loadRequests() {
-        // var li = document.createElement("p"); // cria a <li>
-        // var t = document.createTextNode("teste");
+    var currentData = null;
+
+    function loadRequests(dados) {
+        var div = document.querySelector('#container');
+        var p = document.createElement('p');
 
         setInterval(() => {
-            $.getJSON('/api/solicitations', function(data) {
-                console.log(data[0]);
-                $("#request-container")
-                    .append("<h1>Teste</h1>");
+            $.post("./api/solicitations",
+            {
+                id: 3
+            },
+            function(data, status){
+                if(data != currentData){
+                    currentData = data
+
+                    var newData = JSON.parse(currentData);
+
+                    newData.forEach((elem, index)=>{
+                        console.log(elem);
+                        $('#container').append(`<div class='card p-3 mb-3' id='card${elem.id}'></div>`);
+                        $(`#card${elem.id}`).append(`<h3>Novo pedido</h3>`);
+                        $(`#card${elem.id}`).append(`<p>ID: ${elem.id}</p>`);
+                        $(`#card${elem.id}`).append(`<p>Cliente: ${elem.user}</p>`);
+                        $(`#card${elem.id}`).append(`<p>Data de realização do pedido: ${elem.created_at}</p>`);
+                        $(`#card${elem.id}`).append(`<p>Status do pedido: ${elem.status}</p>`);
+                        $(`#card${elem.id}`).append(`<a href='/pedido/${elem.id}' class='btn btn-dark btn-sm'>Ver</a>`);
+                    });
+                } else {
+                    console.log('iguais');
+                }
             });
         }, 1000);
     }
 
-    loadRequests();
+    loadRequests(currentData);
 </script>
 @endsection
 
