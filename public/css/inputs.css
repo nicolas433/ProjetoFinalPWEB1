@@ -1,0 +1,14 @@
+.my-form-control{
+    display: block;
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding-left: 20px;
+    height: 40px;
+}
+
+.my-form-control:focus{
+    border-color: rgb(221, 150, 153);
+    outline-color: rgb(239, 24, 33);
+    transition: 0.5s;
+}

@@ -12,6 +12,7 @@
                     <input
                         id="inputFilter"
                         type="text" 
+                        class="my-form-control"
                         placeholder="Buscar produtos por nome" 
                         name="name"
                         onkeyup="productsFilter()"
