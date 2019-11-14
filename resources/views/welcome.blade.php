@@ -8,8 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="{{ asset('css/general-styles.css') }}" rel="stylesheet">
         <!-- Styles -->
+        <link href="{{ asset('css/general-styles.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -68,12 +68,12 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a class="dead-link" href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a class="link-menu" href="{{ route('login') }}">Login</a>
+                        <a id="nav-link" href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a class="link-menu" href="{{ route('register') }}">Register</a>
+                            <a id="nav-link" href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
                 </div>
