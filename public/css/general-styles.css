@@ -16,3 +16,8 @@
     color: #111;
     background-color: #efefef;
 }
+
+.link-menu:hover {
+    color: rgb(239, 24, 33);
+    transition: 0.5s;
+}
