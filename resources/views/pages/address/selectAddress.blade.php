@@ -13,7 +13,7 @@
                         <div class="my-card p-3 mb-3">
                         @foreach($addresses as $address)
                                 <div class="form-check d-flex justify-content-between align-items-center">
-                                    <input class="form-check-input" type="radio" name="addressSelected" id="addressSelected{{ $address->id }}" value="{{ $address->id }}" required >
+                                    <input class="my-btn-radio" type="radio" name="addressSelected" id="addressSelected{{ $address->id }}" value="{{ $address->id }}" required >
                                     <label class="form-check-label ml-3" for="addressSelected{{ $address->id }}">
                                         <h2 class="font-weight-bold m-0">
                                             {{ $address->street }},
