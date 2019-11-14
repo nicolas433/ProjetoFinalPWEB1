@@ -23,7 +23,9 @@ class SolicitationController extends Controller
     {
         $userId = auth()->user()->id;
 
-        $requests = Solicitation::all()->where( 'user_id', '=', $userId);
+        $requests = Solicitation::where([
+            ['user_id', '=', $userId],
+        ])->orderBy('id', 'desc')->get();
 
         foreach($requests as $request) {
             $status = Status::find($request->status_id);

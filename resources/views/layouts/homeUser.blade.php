@@ -95,5 +95,9 @@
     @hasSection('javascriptUser')
         @yield('javascriptUser')  
     @endif
+
+    @hasSection('javascript3')
+        @yield('javascript3')  
+    @endif
 </body>
 </html>

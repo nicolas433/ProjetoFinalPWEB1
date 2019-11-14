@@ -30,5 +30,14 @@
                 @endif
             </div>
         </div>
-    </div>          
+    </div>
+
+@section('javascript3')
+<script>
+    setTimeout(() => {
+        location.reload();
+    }, 30000);
+</script>
+@endsection
+
 @endsection
