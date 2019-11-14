@@ -212,7 +212,7 @@ class SolicitationController extends Controller
         $solicitation = Solicitation::find($id);
         $address = Address::find($solicitation->address_id);
         $status = Status::find($solicitation->status_id);
-        $allStatus = Status::all();
+        $allStatus = Status::all()->where('id', '>', '1')->where('id', '<>', '4');
         $requestProducts = RequestProduct::all()->where('request_id', '=', $solicitation->id);
 
         $products = [];

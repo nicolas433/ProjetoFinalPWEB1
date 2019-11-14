@@ -13,23 +13,20 @@
 <script>
     var currentData = null;
 
-    function loadRequests(dados) {
-        var div = document.querySelector('#container');
-        var p = document.createElement('p');
-
+    function loadRequests() {
         setInterval(() => {
             $.post("./api/solicitations",
             {
-                id: 3
+                ok: true
             },
             function(data, status){
                 if(data != currentData){
+                    // Se não for a primeira iteração limpa o conteudo de #container
                     if (currentData != null) {
                         $('#container').empty();
                     }
 
                     currentData = data
-
                     var newData = JSON.parse(currentData);
 
                     newData.forEach((elem, index)=>{
@@ -43,15 +40,12 @@
                             $(`#card${elem.id}`).append(`<a href='/admin/requests/request/${elem.id}' class='btn btn-dark btn-sm'>Ver</a>`);
                         }
                     });
-
-                } else {
-                    console.log('iguais');
                 }
             });
         }, 1000);
     }
 
-    loadRequests(currentData);
+    loadRequests();
 </script>
 @endsection
 
