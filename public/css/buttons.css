@@ -88,6 +88,16 @@
     transition: all .05s;
     text-decoration: none;
     text-transform: none;
-    color: rgb(239, 24, 33);
+    color: rgb(211, 19, 29);
     background-color: #eee;
+}
+
+.btn-trash {
+    background: #fff;
+    border: none;
+    color: rgb(239, 24, 33);
+}
+
+.btn-trash:focus {
+    outline: none;
 }

@@ -8,24 +8,32 @@
                 @endcomponent
 
                 <div class="my-card p-3">
-                    <div class="desc">
-                        <h4>{{ $product->name }}</h4>
-                        <p>{{ $product->description }}</p>
-                        <h4 style="display: inline" >Total&nbsp</h4>
-                        <h4 style="display: inline" id="total">{{ $product->price }} </h4>
-                        <h4 style="display: inline" >R$</h4>
-                        <br>
-                        <br>
-                        <h4 style="display: inline" >Unid.&nbsp</h4>
-                        <h4 style="display: inline" >{{ $product->price }} </h4>
-                        <h4 style="display: inline" >R$</h4>
+                    <div>
+                        <h4 class="titles">{{ $product->name }}</h4>
+                        <p class="desc">{{ $product->description }}</p>
+                        <h4 class="font-normal" style="display: inline" >Unid.&nbsp</h4>
+                        <h4 class="font-normal" style="display: inline" >{{ $product->price }} </h4>
+                        <h4 class="font-normal" style="display: inline" >R$</h4>
                     </div>
-                    <div class="actions d-flex mt-5 justify-content-between">
-                        <p>Quantidade:</p>
+                    <hr>
+
+                    <div class="actions d-flex mt-2 justify-content-between">
+                        <div>
+                            <h4 class="prices bold" style="display: inline" >Total:&nbsp</h4>
+                            <h4 class="prices" style="display: inline" id="total">{{ $product->price }} </h4>
+                            <h4 class="prices" style="display: inline" >R$</h4>
+                        </div>
                         <div class="qtd">
                             <button type="button" class="my-btn-secondary" onClick="decrementar('valor')">-</button>
                             <span id="valor" class="mx-2">1</span>
                             <button type="button" class="my-btn-secondary" onClick="incrementar('valor')">+</button>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-3">
+                        
+                        <div>
+                            
                         </div>
                     </div>
                 </div>

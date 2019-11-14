@@ -5,15 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             @if (count($products) > 0)
-                @component('components.titles', ['title'=>'Home', 'subtitle'=>'teste'])
+                @component('components.titles', ['title'=>'Home', 'subtitle'=>'Produtos mais vendidos'])
                 @endcomponent
 
                 @foreach($products as $product)
                     <div class="my-card p-3 my-3">
                         <div class="c-header mb-1">
                             <div class="">
-                                <h5>{{ $product->name }}</h5>
-                                <p>{{ $product->description }}</p>
+                                <h5 class="titles">{{ $product->name }}</h5>
+                                <p class="desc">{{ $product->description }}</p>
                             </div>
                             <div class="d-flex justify-content-between pt-3">
                                 <h4>R$ {{ $product->price }}</h4>

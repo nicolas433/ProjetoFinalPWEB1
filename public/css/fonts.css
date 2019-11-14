@@ -1,0 +1,16 @@
+.titles, .prices {
+    font-size: 20px;
+}
+
+.desc {
+    font-size: 14px;
+    color: #888;
+}
+
+.font-normal {
+    font-size: 14px;
+}
+
+.bold {
+    font-weight: bold;
+}
