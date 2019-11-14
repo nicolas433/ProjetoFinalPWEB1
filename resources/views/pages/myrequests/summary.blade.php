@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-10 mb-5">
                 @component('components.titles', ['title'=>'Resumo do pedido', 'subtitle'=>''])
                 @endcomponent
 

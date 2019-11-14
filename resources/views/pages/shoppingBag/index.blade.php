@@ -43,8 +43,13 @@
                         </div>
                     </div>
                 @else
-                    <h1>Sacola de compras vazia</h1>
-                    <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar itens</a>
+                    <div class="card p-3 mb-5">
+                        <h3 class="p-2">Sacola de compras vazia</h3>
+                        <a href="/menu/categories" class="my-btn-add mt-5">
+                            <i class="fas fa-plus"></i>
+                            Adicionar itens
+                        </a>
+                    </div>
                 @endif
             </div>
         </div>

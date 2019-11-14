@@ -10,8 +10,8 @@
                 @if(count($addresses) > 0)
                     <form action="/summary" method="POST" class="mb-5">
                         @csrf
+                        <div class="card p-3 mb-3">
                         @foreach($addresses as $address)
-                            <div class="card p-3 mb-3">
                                 <div class="form-check d-flex justify-content-between align-items-center">
                                     <input class="form-check-input" type="radio" name="addressSelected" id="addressSelected{{ $address->id }}" value="{{ $address->id }}" required >
                                     <label class="form-check-label ml-3" for="addressSelected{{ $address->id }}">
@@ -28,10 +28,17 @@
                                         </legend>
                                     </label>
                                 </div>
-                            </div>
-                        @endforeach
+                                @if(count($addresses) > 1)
+                                    <hr>
+                                @endif
+                                @endforeach
 
-                        <a href="/selectaddress/{{ 1 }}" class="btn btn-dark btn-sm col-md-12 mb-5">Adicionar outro endereço</a>
+                                <a href="/selectaddress/{{ 1 }}" class="my-btn-add col-md-12 mt-5">
+                                    <i class="fas fa-plus"></i>
+                                    Novo endereço
+                                </a>
+                            </div>
+
 
                         <div class="card p-3 fixed-bottom mt-5">
                             <button type="submit" class="my-btn-primary">Ok</button>

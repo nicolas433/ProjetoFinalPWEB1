@@ -46,6 +46,27 @@
     text-transform: none;
 }
 
+.my-btn-primary-sm {
+    background-color: rgb(239, 24, 33);
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s;
+    width: 100%;
+}
+
+.my-btn-primary-sm:hover {
+    background-color: rgb(211, 19, 29);
+    color: #fff;
+    text-decoration: none;
+}
+
 .my-btn-add {
     background-color: #fefefe;
     border: 1px solid #eee;
