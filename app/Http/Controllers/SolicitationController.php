@@ -108,7 +108,7 @@ class SolicitationController extends Controller
         $solicitation = Solicitation::find($id);
 
         if(isset($solicitation)){
-            $solicitation->status_id = 2;
+            $solicitation->status_id = 4;
             $solicitation->save();
         }
 
