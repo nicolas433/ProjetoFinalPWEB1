@@ -8,8 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
         <!-- Styles -->
+        <link href="{{ asset('css/general-styles.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -70,10 +70,10 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a id="nav-link" href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a id="nav-link" href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
                 </div>
