@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10 mb-5">
+            <div class="col-sm-12 mb-5 d-flex flex-column">
                 @component('components.titles', ['title'=>'Sacola de compras', 'subtitle'=>'descrição'])
                 @endcomponent
 
@@ -33,10 +33,12 @@
                         
                         <span>Valor final R$ {{ $total }}</span>
 
-                        <a href="/menu/categories" class="my-btn-add mt-5">
-                            <i class="fas fa-plus"></i>
-                            Adicionar mais itens
-                        </a>
+                        <div class="col-xs-12 d-flex justify-content-center mt-5">
+                            <a href="/menu/categories" class="my-btn-add">
+                                <i class="fas fa-plus"></i>
+                                Adicionar mais itens
+                            </a>
+                        </div>
                     
                         <div class="card p-3 fixed-bottom mt-5">
                             <a href="/selectaddress" class="my-btn-primary">Realizar pedido</a>

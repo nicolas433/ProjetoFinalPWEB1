@@ -32,11 +32,13 @@
                                     <hr>
                                 @endif
                                 @endforeach
-
-                                <a href="/selectaddress/{{ 1 }}" class="my-btn-add col-md-12 mt-5">
-                                    <i class="fas fa-plus"></i>
-                                    Novo endereço
-                                </a>
+                                
+                                <div class="col-xs-12 d-flex justify-content-center mt-2">
+                                    <a href="/selectaddress/{{ 1 }}" class="my-btn-add col-md-12 mt-5">
+                                        <i class="fas fa-plus"></i>
+                                        Novo endereço
+                                    </a>
+                                </div>
                             </div>
 
 

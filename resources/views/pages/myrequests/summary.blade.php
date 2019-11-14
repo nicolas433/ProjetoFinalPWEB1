@@ -51,7 +51,11 @@
                             </div>
                         @endif
 
-                        <a href="/shoppingbag" class="my-btn-secondary mt-5">Cancelar</a>
+                        <div class="col-xs-12 d-flex justify-content-center mt-2">
+                            <a href="/shoppingbag" class="my-btn-secondary mt-5" style="width: 100%;">Cancelar</a>
+                        </div>
+
+                        
 
                         <form action="/request" method="POST" class="card p-3 fixed-bottom mt-5">
                             @csrf
