@@ -1,3 +1,7 @@
+body {
+    background-color: #fcfcfc;
+}
+
 .card-category-item {
     font-size: 24px;
     padding: 20px;
@@ -45,3 +49,5 @@
     border: 2px solid rgb(239, 24, 33);
     width: 100%;
 }
+
+
