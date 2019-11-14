@@ -22,6 +22,8 @@
     <link href="{{ asset('css/general-styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/buttons.css') }}" rel="stylesheet">
     <link href="{{ asset('css/cards.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/inputs.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
