@@ -1,6 +1,39 @@
 @extends('layouts.homeUser')
  
 @section('content')
+    <style>
+        .form-check:after {
+            content: "";
+            clear: both;
+        }
+
+        .form-check {
+            box-sizing: border-box;
+            height: 70px;
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .form-check label {
+            background: #fff no-repeat center center;
+            cursor: pointer;
+            display: block;
+            font-size: 0;
+            width: 93%;
+            padding: 6px;
+
+            left: 1px;
+            position: absolute;
+            right: 1px;
+            top: 1px;
+        }
+
+        .form-check input:focus + label {
+            outline: 4px solid red;
+        }
+    </style>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
@@ -12,19 +45,19 @@
                         @csrf
                         <div class="my-card p-3 mb-3">
                         @foreach($addresses as $address)
-                                <div class="form-check d-flex justify-content-between align-items-center">
+                                <div class="form-check d-flex justify-content-between align-items-center pb-3">
                                     <input class="my-btn-radio" type="radio" name="addressSelected" id="addressSelected{{ $address->id }}" value="{{ $address->id }}" required >
                                     <label class="form-check-label ml-3" for="addressSelected{{ $address->id }}">
-                                        <h2 class="font-weight-bold m-0">
-                                            {{ $address->street }},
+                                        <h2 class="titles m-0">
+                                            Rua: {{ $address->street }},
                                             Nº {{ $address->house_number }},
                                             @if ($address->apartment_number != null)
-                                                <p class="card-title">Apto: {{ $address->apartment_number }}</p>
+                                                <p class="desc">Apto: {{ $address->apartment_number }}</p>
                                             @endif
                                         </h2>
-                                        <legend class="m-0">
-                                            {{ $address->neighborhood }}, 
-                                            {{ $address->city }}.
+                                        <legend class="m-0 desc">
+                                            Bairro: {{ $address->neighborhood }}, 
+                                            Cidade: {{ $address->city }}.
                                         </legend>
                                     </label>
                                 </div>
