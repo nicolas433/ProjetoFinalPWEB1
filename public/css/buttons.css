@@ -1,3 +1,24 @@
 .my-btn-primary {
     background-color: rgb(239, 24, 33);
+    padding: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    box-shadow: 2px 4px 6px #0005;
+    cursor: pointer;
+    transition: all .2s;
+    border: none;
+    width: 100%;
+}
+
+.my-btn-primary:hover {
+    background-color: rgb(211, 19, 29);
+    color: #fff;
+    transition: all .5s;
+    text-decoration: none;
+    text-transform: none;
 }

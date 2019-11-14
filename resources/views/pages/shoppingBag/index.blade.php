@@ -36,7 +36,7 @@
                         <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar mais itens</a>
                     
                         <div class="card p-3 fixed-bottom mt-5">
-                            <a href="/selectaddress" class="btn btn-dark text-white btn-sm p-3">Realizar pedido</a>
+                            <a href="/selectaddress" class="my-btn-primary">Realizar pedido</a>
                         </div>
                     </div>
                 @else

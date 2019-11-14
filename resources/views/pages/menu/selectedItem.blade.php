@@ -36,9 +36,9 @@
                         <input type="hidden" name="productId" value="{{ $product->id }}">
                         <input id="subamount" type="hidden" name="amount" value="1">
                         <input id="subvalue" type="hidden" name="totalValue" value="{{ $product->price }}">
-                        <button type="submit" class="btn btn-dark text-white btn-sm p-3 d-flex justify-content-between">
-                            <span>Adicionar &nbsp </span>
-                            <span id="sub">{{ $product->price }} </span><span>R$</span>
+                        <button type="submit" class="my-btn-primary d-flex justify-content-between">
+                            <span>Adicionar</span>
+                            <span id="sub"><span>R$ </span>{{ $product->price }}</span>
                         </button>
                     </form>
                 </div>
