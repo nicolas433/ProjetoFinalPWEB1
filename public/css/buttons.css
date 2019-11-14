@@ -80,6 +80,7 @@
     text-align: center;
     cursor: pointer;
     transition: all .2s;
+    margin-right: 40px;
 }
 
 .my-btn-primary-small:hover {
