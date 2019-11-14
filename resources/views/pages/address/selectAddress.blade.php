@@ -34,7 +34,7 @@
                         <a href="/selectaddress/{{ 1 }}" class="btn btn-dark btn-sm col-md-12 mb-5">Adicionar outro endereço</a>
 
                         <div class="card p-3 fixed-bottom mt-5">
-                            <button type="submit" class="btn btn-dark">Ok</button>
+                            <button type="submit" class="my-btn-primary">Ok</button>
                         </div>
                     </form>
                 @else

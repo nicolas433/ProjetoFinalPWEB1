@@ -56,7 +56,7 @@
                         <form action="/request" method="POST" class="card p-3 fixed-bottom mt-5">
                             @csrf
                             <input type="hidden" name="addressId" value="{{ $address->id }}">
-                            <button class="btn btn-dark d-flex justify-content-between">
+                            <button class="my-btn-primary d-flex justify-content-between">
                                 <span>Pedir!</span>
                                 <span>R$ {{ $total }}</span>
                             </button>

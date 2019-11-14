@@ -23,9 +23,9 @@
                     <div class="actions d-flex mt-5 justify-content-between">
                         <p>Quantidade:</p>
                         <div class="qtd">
-                            <button type="button" class="btn btn-outline-dark btn-sm" onClick="decrementar('valor')">-</button>
+                            <button type="button" class="my-btn-secondary" onClick="decrementar('valor')">-</button>
                             <span id="valor" class="mx-2">1</span>
-                            <button type="button" class="btn btn-outline-dark btn-sm" onClick="incrementar('valor')">+</button>
+                            <button type="button" class="my-btn-secondary" onClick="incrementar('valor')">+</button>
                         </div>
                     </div>
                 </div>
