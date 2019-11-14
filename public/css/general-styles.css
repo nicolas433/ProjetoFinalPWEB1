@@ -17,15 +17,15 @@
     background-color: #efefef;
 }
 
-.link-menu:hover {
+
+
+#nav-link{
     color: rgb(239, 24, 33);
+    font-size: large;
+}
+
+#dead-link{
     transition: 0.5s;
-}
-
-
-.dead-link{
+    font-size: large;
     color: #636b6f;
-}
-.dead-link:hover{
-    color: #544d4d;
 }
