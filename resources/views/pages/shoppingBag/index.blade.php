@@ -8,7 +8,7 @@
                 @endcomponent
 
                 @if(count($products) > 0)
-                    <div class="card p-3 mb-5">
+                    <div class="my-card p-3 mb-5">
                     @php
                         $total = 0;
                     @endphp
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 @else
-                    <div class="card p-3 mb-5">
+                    <div class="my-card p-3 mb-5">
                         <h3 class="p-2">Sacola de compras vazia</h3>
                         <a href="/menu/categories" class="my-btn-add mt-5">
                             <i class="fas fa-plus"></i>

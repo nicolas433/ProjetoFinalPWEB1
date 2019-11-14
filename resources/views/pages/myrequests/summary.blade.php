@@ -8,7 +8,7 @@
                 @endcomponent
 
                 @if(isset($products))
-                    <div class="card p-3 mb-5">
+                    <div class="my-card p-3 mb-5">
                     @php
                         $total = 0;
                     @endphp

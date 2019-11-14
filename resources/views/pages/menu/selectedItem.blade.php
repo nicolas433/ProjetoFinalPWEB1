@@ -7,7 +7,7 @@
                 @component('components.titles', ['title'=>'Seleciona a quantidade', 'subtitle'=>'descrição'])
                 @endcomponent
 
-                <div class="card p-3">
+                <div class="my-card p-3">
                     <div class="desc">
                         <h4>{{ $product->name }}</h4>
                         <p>{{ $product->description }}</p>

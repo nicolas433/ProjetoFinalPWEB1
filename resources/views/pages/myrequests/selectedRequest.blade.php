@@ -7,7 +7,7 @@
                 @component('components.titles', ['title'=>'Detalhes do pedido', 'subtitle'=>''])
                 @endcomponent
 
-                <div class="card p-3">
+                <div class="my-card p-3">
                     <h4>Informações do pedido</h4>
 
                     <div class="info-request">

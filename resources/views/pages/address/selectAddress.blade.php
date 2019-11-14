@@ -10,7 +10,7 @@
                 @if(count($addresses) > 0)
                     <form action="/summary" method="POST" class="mb-5">
                         @csrf
-                        <div class="card p-3 mb-3">
+                        <div class="my-card p-3 mb-3">
                         @foreach($addresses as $address)
                                 <div class="form-check d-flex justify-content-between align-items-center">
                                     <input class="form-check-input" type="radio" name="addressSelected" id="addressSelected{{ $address->id }}" value="{{ $address->id }}" required >

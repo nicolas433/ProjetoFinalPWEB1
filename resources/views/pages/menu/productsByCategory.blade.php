@@ -19,7 +19,7 @@
                 </form>
 
                 @foreach($products as $product)
-                    <div class="card p-3 my-3">
+                    <div class="my-card p-3 my-3">
                         <div class="c-header mb-1">
                             <div class="">
                                 <h5>{{ $product->name }}</h5>
