@@ -19,13 +19,16 @@
                 </form>
 
                 @foreach($products as $product)
-                    <div class="card p-3 my-3 prod">
-                        <div class="c-header d-flex justify-content-between mb-1">
-                            <h5 class="productName">{{ $product->name }}</h5>
-                            <h4>R$ {{ $product->price }}</h4>
-                        </div>
-                        <div class="c-body">
-                            <a href="/menu/item/{{ $product->id }}" class="btn btn-dark btn-sm">Adicionar a sacola</a>
+                    <div class="card p-3 my-3">
+                        <div class="c-header mb-1">
+                            <div class="">
+                                <h5>{{ $product->name }}</h5>
+                                <p>{{ $product->description }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between pt-3">
+                                <h4>R$ {{ $product->price }}</h4>
+                                <a href="/menu/item/{{ $product->id }}" class="my-btn-secondary">Adicionar a sacola</a>
+                            </div>
                         </div>
                     </div>
 

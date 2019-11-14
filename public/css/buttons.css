@@ -45,3 +45,26 @@
     text-decoration: none;
     text-transform: none;
 }
+
+.my-btn-add {
+    background-color: #fefefe;
+    border: 1px solid #eee;
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(239, 24, 33);
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.my-btn-add:hover {
+    transition: all .05s;
+    text-decoration: none;
+    text-transform: none;
+    color: rgb(239, 24, 33);
+    background-color: #eee;
+}

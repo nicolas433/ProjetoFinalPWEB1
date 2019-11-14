@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-10 mb-5">
                 @component('components.titles', ['title'=>'Sacola de compras', 'subtitle'=>'descrição'])
                 @endcomponent
 
                 @if(count($products) > 0)
-                    <div class="card p-3">
+                    <div class="card p-3 mb-5">
                     @php
                         $total = 0;
                     @endphp
@@ -33,7 +33,10 @@
                         
                         <span>Valor final R$ {{ $total }}</span>
 
-                        <a href="/menu/categories" class="btn btn-dark btn-sm mt-5">Adicionar mais itens</a>
+                        <a href="/menu/categories" class="my-btn-add mt-5">
+                            <i class="fas fa-plus"></i>
+                            Adicionar mais itens
+                        </a>
                     
                         <div class="card p-3 fixed-bottom mt-5">
                             <a href="/selectaddress" class="my-btn-primary">Realizar pedido</a>
