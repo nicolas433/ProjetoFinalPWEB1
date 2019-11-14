@@ -38,7 +38,7 @@
                         <input id="subvalue" type="hidden" name="totalValue" value="{{ $product->price }}">
                         <button type="submit" class="my-btn-primary d-flex justify-content-between">
                             <span>Adicionar</span>
-                            <span id="sub"><span>R$ </span>{{ $product->price }}</span>
+                            <span>R$ <span id="sub">{{ $product->price }}</span></span>
                         </button>
                     </form>
                 </div>
