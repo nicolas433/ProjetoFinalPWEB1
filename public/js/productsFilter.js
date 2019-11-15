@@ -1,7 +1,6 @@
 const cards = document.querySelectorAll('.prod');
 const products = document.querySelectorAll('.productName');
 const msg = document.querySelector('#not-found');
-const container = document.querySelectorAll('#prods prod');
 
 
 function toggleState(elem) {

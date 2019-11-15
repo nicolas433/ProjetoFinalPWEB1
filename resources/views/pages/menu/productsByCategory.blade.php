@@ -20,10 +20,10 @@
                 </form>
 
                 @foreach($products as $product)
-                    <div class="my-card p-3 my-3">
+                    <div class="my-card p-3 my-3 prod">
                         <div class="c-header mb-1">
                             <div class="">
-                                <h5>{{ $product->name }}</h5>
+                                <h5 class="productName">{{ $product->name }}</h5>
                                 <p>{{ $product->description }}</p>
                             </div>
                             <div class="d-flex justify-content-between pt-3">
