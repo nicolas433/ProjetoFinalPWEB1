@@ -12,42 +12,46 @@
                     @php
                         $total = 0;
                     @endphp
+                        <h3 class="titles bold mb-4">Informações do pedido</h3>
                         @for($i = 0; $i < count($products); $i++)
-                            <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
+                            <div class="bag-item d-flex flex-row justify-content-between align-items-center p-0">
                                 <div class="title-product">
-                                    {{ $products[$i]->amount }} <b>{{ $products[$i]->name }}</b>
+                                    <p class="titles m-0">{{ $products[$i]->name }}</p>
+                                    <p class="desc m-0">Quantidade: {{ $products[$i]->amount }}</p>
                                 </div>
-                                <div class="price-actions">
-                                    <span>R$ {{ $products[$i]->totalValue }}</span>
+
+                                <div class="price-actions d-flex justify-content-between align-items-start">
+                                    <span class="titles">R$ {{ $products[$i]->totalValue }}</span>
                                     @php
                                         $total += $products[$i]->totalValue;
                                     @endphp
                                 </div>
                             </div>
+                            <hr>
                         @endfor
-                        <br>
-                            <div class="bag-item mb-3 d-flex flex-row justify-content-between align-items-center">
+                            <div class="bag-item mb-3 pt-4 d-flex flex-row justify-content-between align-items-center">
                                 <div class="title-product">
-                                    <b>Total</b>
+                                    <b class="titles bold">Total</b>
                                 </div>
                                 <div class="price-actions">
-                                    <span>R$ {{ $total }}</span>
+                                    <span class="prices bold">R$ {{ $total }}</span>
                                 </div>
                             </div>
                         <hr>
                         @if (isset($address))
-                            <div>
-                                <p class="font-weight-bold m-0">
-                                    {{ $address->street }},
+                            <h3 class="titles mb-3 bold">Informações do endereço de entrega</h3>
+                            <div class="pt-2">
+                                <h2 class="titles m-0">
+                                    Rua: {{ $address->street }},
                                     Nº {{ $address->house_number }},
                                     @if ($address->apartment_number != null)
-                                        <p class="card-title">Apto: {{ $address->apartment_number }}</p>
+                                        <p class="desc">Apto: {{ $address->apartment_number }}</p>
                                     @endif
-                                </p>
-                                <p class="m-0">
-                                    {{ $address->neighborhood }}, 
-                                    {{ $address->city }}.
-                                </p>
+                                </h2>
+                                <legend class="m-0 desc">
+                                    Bairro: {{ $address->neighborhood }}, 
+                                    Cidade: {{ $address->city }}.
+                                </legend>
                             </div>
                         @endif
 

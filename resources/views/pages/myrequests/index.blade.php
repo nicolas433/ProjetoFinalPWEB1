@@ -9,18 +9,27 @@
 
                 @if(count($requests) > 0)
                     @foreach($requests as $request)
-                        <div class="my-card p-3 mb-3">
-                             <div class="mb-3 d-flex flex-row justify-content-between align-items-center">
+                        <div
+                            @if($request->status_id == 4)
+                                class="my-card p-3 status-red mb-4"
+                            @elseif($request->status_id < 4)
+                                class="my-card p-3 status-blue mb-4"
+                            @else
+                                class="my-card p-3 mb-4"
+                            @endif
+                        >
+                             <div class="mb-3 d-flex flex-column justify-content-between align-items-center">
                                 <div class="">
-                                    <span>Protocolo: {{ $request->id }}</span>
+                                    <span class="desc">Protocolo: {{ $request->id }}</span>
                                     <div class="status">
-                                        <span>Cor do código</span>
-                                        <p>Status: {{ $request->status }}</p>
-                                        <p>Data da realização do pedido: {{ $request->created_at }}</p>
+                                        <p class="titles">Status: {{ $request->status }}</p>
+                                        <p class="desc pt-3">Data da realização do pedido: {{ $request->created_at }}</p>
                                     </div>
                                 </div>
-                                <div class="request-actions">
-                                    <a href="/requests/request/{{ $request->id }}" class="btn btn-dark btn-sm">Ver</a>
+                                <div class="request-actions py-3">
+                                    <a href="/requests/request/{{ $request->id }}" class="my-btn-add">
+                                        <i class="fas fa-eye"></i> Ver
+                                    </a>
                                 </div>
                             </div>
                         </div>

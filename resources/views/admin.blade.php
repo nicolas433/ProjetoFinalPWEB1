@@ -2,9 +2,14 @@
  
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8" id="container">
-            
+    <div class="row">
+        <div class="col-md-10 d-flex flex-column align-items-center">
+            @component('components.titles', ['title'=>'Lista de pedidos', 'subtitle'=>'Aqui são exibido todos os pedidos que estão sendo realizados no momento'])
+            @endcomponent
+
+            <div class="col-md-12" id="container">
+                
+            </div>
         </div>
     </div>
 </div>

@@ -4,9 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+            @component('components.titles', ['title'=>__('Verify Your Email Address'), 'subtitle'=>''])
+            @endcomponent
 
+            <div class="my-card">
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">

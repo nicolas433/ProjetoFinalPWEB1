@@ -33,7 +33,10 @@
                             <hr>
                         @endfor
                         
-                        <span>Valor final R$ {{ $total }}</span>
+                        <div class="titles bold d-flex justify-content-between pt-3">
+                            <span>Valor final</span>
+                            <span>R$ {{ $total }}</span>
+                        </div>
 
                         <div class="col-xs-12 d-flex justify-content-center mt-5">
                             <a href="/menu/categories" class="my-btn-add">

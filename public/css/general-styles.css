@@ -54,3 +54,11 @@ body {
     height: 50px;
 } */
 
+div.status-blue {
+    box-shadow: 1px 1px 6px rgba(39, 124, 194, 0.938);
+}
+
+div.status-red {
+    box-shadow: 1px 1px 6px rgba(233, 42, 58, 0.87);
+}
+

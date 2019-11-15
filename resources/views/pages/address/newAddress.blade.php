@@ -7,7 +7,7 @@
                 @component('components.titles', ['title'=>'Novo endereço', 'subtitle'=>''])
                 @endcomponent
 
-                <div class="card">
+                <div class="my-card">
                     <div class="card-body">
                         <form action="/addresses" method="POST">
                             @csrf
@@ -75,11 +75,11 @@
                                 >
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                            <button type="submit" class="my-btn-primary2">Salvar</button>
                             @if(isset($action))
-                                <a href="/selectaddress" class="btn btn-danger btn-sm">Cancelar</a>
+                                <a href="/selectaddress" class="my-btn-secondary">Cancelar</a>
                             @else
-                                <a href="/addresses" class="btn btn-danger btn-sm">Cancelar</a>
+                                <a href="/addresses" class="my-btn-secondary">Cancelar</a>
                             @endif
                             
                         </form>

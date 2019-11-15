@@ -29,13 +29,13 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand text-danger font-weight-bold" href="{{ url('/home') }}">
                     Maia Delivery!
                 </a>
                 
                 <div class="d-flex justify-content-between">
                     <div class="btn-bag">
-                        <a href="/shoppingbag" class="nav-link">Sacola</a>
+                        <a href="/shoppingbag" class="nav-link text-danger font-weight-bold"><i class="fas fa-shopping-bag"></i> Sacola</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>

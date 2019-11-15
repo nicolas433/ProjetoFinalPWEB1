@@ -4,11 +4,10 @@
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between">
-                        Editar endereço
-                    </div>
-    
+                @component('components.titles', ['title'=>'Editar endereço', 'subtitle'=>''])
+                @endcomponent
+
+                <div class="my-card">
                     <div class="card-body">
                         <form action="/addresses/{{ $address->id }}" method="POST">
                             @csrf
@@ -17,7 +16,7 @@
                                 <label for="houseNumber">Numero da casa*</label>
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="my-form-control"
                                     name="houseNumber"
                                     id="houseNumber"
                                     placeholder="Digite o numero da casa"
@@ -28,7 +27,7 @@
                                 <label for="apartmentNumber">Numero do apartamento</label>
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="my-form-control"
                                     name="apartmentNumber"
                                     id="apartmentNumber"
                                     placeholder="Digite o numero do apartamento"
@@ -39,7 +38,7 @@
                                 <label for="street">Rua*</label>
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="my-form-control"
                                     name="street"
                                     id="street"
                                     placeholder="Digite o nome da Rua"
@@ -50,7 +49,7 @@
                                 <label for="neighborhood">Bairro*</label>
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="my-form-control"
                                     name="neighborhood"
                                     id="neighborhood"
                                     placeholder="Digite o nome do Bairro"
@@ -61,7 +60,7 @@
                                 <label for="city">Cidade*</label>
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="my-form-control"
                                     name="city"
                                     id="city"
                                     placeholder="Digite o nome da Cidade"
@@ -72,7 +71,7 @@
                                 <label for="referencePoint">Ponto de referencia</label>
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="my-form-control"
                                     name="referencePoint"
                                     id="referencePoint"
                                     placeholder="Digite um ponto de referencia"
@@ -80,8 +79,8 @@
                                 >
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-                            <a href="/addresses" class="btn btn-danger btn-sm">Cancelar</a>
+                            <button type="submit" class="my-btn-primary2">Salvar</button>
+                            <a href="/addresses" class="my-btn-secondary">Cancelar</a>
                         </form>
                     </div>
                 </div>
