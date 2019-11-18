@@ -80,10 +80,9 @@
                         </div>
                     </form>
                 @else
-                    <div>
-                        <h3>Ops! Nenhum endereço cadastrado!</h3>
-                        <h4>Cadastre um novo endereço para continuar</h4>
-                        <a href="/selectaddress/{{ 1 }}" class="btn btn-dark btn-sm col-md-12">Cadastrar um endereço</a>
+                    <div class="d-flex flex-column align-items-center">
+                        <h3 class="text-center text-danger p-5">Ops! Nenhum endereço cadastrado!</h3>
+                        <a href="/selectaddress/{{ 1 }}" class="my-btn-add"><i class="fas fa-plus"></i> Cadastrar um endereço</a>
                     </div>
                 @endif
             </div>
